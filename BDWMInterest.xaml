@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="WpfQuery.BDWMInterest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <DataGrid Name="dgQueryResult" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" DockPanel.Dock="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Header="兴趣名称" Binding="{Binding name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfQuery.Options"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="设置" Height="400" Width="480" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+    <Window.Resources>
+        <XmlDataProvider x:Key="samples" Source="Setting.xml" />
+    </Window.Resources>
+    <DockPanel DataContext="{Binding  Source={StaticResource samples}, XPath=Settings/Setting}">
+        <DockPanel Width="160" DockPanel.Dock="Left">
+            <ListBox ItemsSource="{Binding}" DisplayMemberPath="@Title" IsSynchronizedWithCurrentItem="True" Margin="4"/>
+        </DockPanel>
+        <Frame Source="{Binding XPath=@Page}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden" Focusable="False" Padding="0,4,4,4"/>
+    </DockPanel>
+</Window>

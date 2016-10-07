@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="WpfQuery.PlatformQuery"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:vc="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
+             d:DesignHeight="600" d:DesignWidth="600">
+
+    <Grid>
+        <DockPanel>
+            <TabControl Name="Tab" DockPanel.Dock="Left" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" BorderThickness="0" Background="{x:Null}">
+                <TabItem Visibility="Hidden">
+                    <Grid Background="#E4EDF6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="55" />
+                        </Grid.RowDefinitions>
+                        <WrapPanel Grid.Row="0" VerticalAlignment="Center">
+                            <CheckBox Content="百度搜索引擎" IsChecked="True" Name="chkBaidu" IsEnabled="False" Margin="5,0,0,0" />
+                            <CheckBox Content="360搜索引擎" IsChecked="False" Name="chk360" IsEnabled="False" Visibility="Hidden" />
+                        </WrapPanel>
+                        <DockPanel  Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                            <Path Data="M0,5.6666667 L86.333333,6.6666667" Fill="#000" Height="1" Margin="0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top"/>
+                        </DockPanel>
+                        <StackPanel Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock Text="请输入关键词（一行一个）  例如：百度" />
+                        </StackPanel>
+                        <DockPanel  Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                            <TextBox Name="txtQueryKey" DockPanel.Dock="Left"  TextWrapping="Wrap"   AcceptsReturn="True" VerticalScrollBarVisibility="Visible" />
+                        </DockPanel>
+                        <StackPanel Grid.Row="4" VerticalAlignment="Bottom">
+                            <Grid Background="#E4EDF6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="180" />
+                                </Grid.ColumnDefinitions>
+                                <WrapPanel Grid.Column="0" VerticalAlignment="Center">
+                                    <TextBlock Text="排名设置" />
+                                    <RadioButton Content="10" IsChecked="True"   Name="Rand10" />
+                                    <RadioButton Content="20" IsChecked="False"  Name="Rand20" />
+                                    <RadioButton Content="50" IsChecked="False"   Name="Rand50" />
+                                    <RadioButton Content="100" IsChecked="False"  Name="Rand100"  />
+                                </WrapPanel>
+                                <Button Grid.Column="1" Content="查询" VerticalAlignment="Bottom" Width="150" Height="50" Click="btQuery"/>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Visibility="Hidden">
+                    <Grid Background="#E4EDF6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="26" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="38" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                            <ToolBar HorizontalAlignment="Stretch" Height="26" VerticalAlignment="Top" >
+                                <TextBlock Text="关键词总数："  VerticalAlignment="Center" Name="tbTotal"/>
+                                <Separator />
+                                <Border Background="#ababb4">
+                                    <Button Click="ReturnQuery">
+                                        <WrapPanel>
+                                            <Image Source="Images\return.png" Width="16" Height="14"/>
+                                            <TextBlock Text="返回查询"/>
+                                        </WrapPanel>
+                                    </Button>
+                                </Border>
+                            </ToolBar>
+                        </StackPanel>
+                        <DockPanel  Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                            <Grid Background="#E4EDF6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="200"/>
+                                </Grid.ColumnDefinitions>
+                                <DockPanel  Grid.Row="0"  Grid.Column="0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                    <ListBox  Name="tvKey" DockPanel.Dock="Left" SelectionChanged="tvKey_SelectionChanged" Margin="0,0,5,0"  />
+                                </DockPanel>
+                                <DockPanel  Grid.Row="0"  Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                    <DataGrid Name="dgQueryResult"  DockPanel.Dock="Right" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,5,0" >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="#" Width="40" Binding="{Binding id}"/>
+                                            <DataGridTextColumn  Header="平台" Binding="{Binding url}"/>
+                                            <DataGridTextColumn Header="排名"  Binding="{Binding rank}"/>
+                                            <DataGridTextColumn Header="标题" Binding="{Binding title}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </DockPanel>
+                                <GridSplitter Grid.Row="0" Grid.Column="0" Background="#B7CAE2" HorizontalAlignment="Right"   VerticalAlignment="Stretch" Width="5"  />
+                                <DockPanel Grid.Row="0"  Grid.Column="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                    <vc:Chart Name="MyChart"  Padding="10,10" AnimatedUpdate="True" ZoomingEnabled="True" ZoomingMode="MouseWheel" PanningMode="ScrollBarAndMouseDrag">
+                                        <vc:Chart.Titles>
+                                            <vc:Title Name="ChartTitle" Text="关键词："></vc:Title>
+                                        </vc:Chart.Titles>
+                                        <vc:Chart.AxesX>
+                                            <vc:Axis Title="平台" />
+                                        </vc:Chart.AxesX>
+                                        <vc:Chart.AxesY>
+                                            <vc:Axis Title="统计" />
+                                        </vc:Chart.AxesY>
+                                        <vc:Chart.Series>
+                                            <vc:DataSeries RenderAs="Bar" x:Name="dataSeries"  LegendText="平台统计">
+                                                <vc:DataSeries.DataMappings>
+                                                    <vc:DataMapping MemberName="AxisXLabel" Path="url"></vc:DataMapping>
+                                                    <vc:DataMapping MemberName="YValue" Path="num"></vc:DataMapping>
+                                                </vc:DataSeries.DataMappings>
+                                            </vc:DataSeries>
+                                        </vc:Chart.Series>
+                                    </vc:Chart>
+                                </DockPanel>
+                                <GridSplitter Grid.Row="0" Grid.Column="1" Background="#B7CAE2" HorizontalAlignment="Right"   VerticalAlignment="Stretch" Width="5"  />
+                            </Grid>
+                        </DockPanel>
+                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                            <ProgressBar Name="pbQuery" HorizontalAlignment="Stretch" Height="38" VerticalAlignment="Top"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+        </DockPanel>
+    </Grid>
+</UserControl>

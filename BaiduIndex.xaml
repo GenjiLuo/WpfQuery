@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="WpfQuery.BaiduIndex"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:odc="clr-namespace:Odyssey.Controls;assembly=Odyssey"
+             xmlns:ExtendedGridControl="clr-namespace:ExtendedGrid.ExtendedGridControl;assembly=ExtendedGrid" 
+             xmlns:dz="http://schemas.devzest.com/presentation"
+             xmlns:p="clr-namespace:PropertyTools.Wpf;assembly=PropertyTools.Wpf"
+             xmlns:hammer="clr-namespace:Hammer.SpinningWheel;assembly=Hammer.SpinningWheel"
+             xmlns:g="clr-namespace:WpfGauge;assembly=WpfGauge"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+            <Border BorderThickness="0,0,0,5" BorderBrush="#B7CAE2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Name="buttonQuery" Grid.Row="0" Grid.Column="0"  Content="查询" ToolTip="查询百度指数" Width="100" Height="40" Click="btQuery" />
+                    <Button Name="buttonExport" Grid.Row="0" Grid.Column="1" Content="导出" ToolTip="导出查询结果" Width="100" Height="40" Click="btExport"/>
+                    <hammer:SpinningWheel IsSpinning="False" Grid.Row="0" Grid.Column="2"
+                              DotRadius="3" 
+                              Speed="1"
+                              Radius="14"
+                              DotCount="12"  
+                              SymmetricalArrange="True"
+                              x:Name="wheel"
+                              >
+                        <hammer:SpinningWheel.Style>
+                            <Style>
+                            </Style>
+                        </hammer:SpinningWheel.Style>
+                    </hammer:SpinningWheel>
+                </Grid>
+            </Border>
+        </DockPanel>
+        
+        <Grid Grid.Row="1" Grid.Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="0" >
+                    <xctk:WatermarkTextBox Name="wtKey" Watermark="请输入关键词&#13;例如：牛皮癣"  DockPanel.Dock="Left"  TextWrapping="Wrap"   AcceptsReturn="True" VerticalScrollBarVisibility="Visible" />
+                </DockPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0" >
+                    <odc:OdcExpander Header="框架皮肤" Margin="0" Background="White" ShowEllipse="False" IsExpanded="False">
+                        <StackPanel>
+                            <Button Margin="4"  Click="BlueSkinClick" Content="蓝" Background="#bfdbff"/>
+                            <Button Margin="4"  Click="SilverSkinClick" Content="银" Background="#d0d4dd"/>
+                            <Button Margin="4"  Click="BlackSkinClick" Content="黑" Background="#535353"/>
+                        </StackPanel>
+                    </odc:OdcExpander>
+                    <odc:OdcExpander Header="表格皮肤" Margin="0" Background="White" ShowEllipse="False" IsExpanded="False">
+                        <!--DevZest.SplitContainer-->
+                        <dz:SplitContainer>
+                            <dz:SplitContainer.Child1>
+                                <Button Content="默认" Click="btDefaultThemes"/>
+                            </dz:SplitContainer.Child1>
+                            <dz:SplitContainer.Child2>
+                                <dz:SplitContainer Orientation="Horizontal" ShowsPreview="False">
+                                    <dz:SplitContainer.Child1>
+                                        <Button Content="系统" Click="btSystemThemes"/>
+                                    </dz:SplitContainer.Child1>
+                                    <dz:SplitContainer.Child2>
+                                        <Button Content="媒体" Click="btMediaThemes"/>
+                                    </dz:SplitContainer.Child2>
+                                </dz:SplitContainer>
+                            </dz:SplitContainer.Child2>
+                        </dz:SplitContainer>
+                    </odc:OdcExpander>
+                    <odc:OdcExpander Header="表格前景色" Margin="0" Background="White" ShowEllipse="False"  IsExpanded="False">
+                        <StackPanel>
+                            <p:ColorPicker Name="cp" Margin="4,4,4,0" />
+                            <Button Content="应用表格前景色" Click="btForeground" Margin="4,0,4,4" />
+                        </StackPanel>
+                    </odc:OdcExpander>
+                    <odc:OdcExpander Header="平均指数" Margin="0" Background="White" ShowEllipse="False"  IsExpanded="False">
+                        <StackPanel>
+                            <g:Gauge Name="gauge" DockPanel.Dock="Left" Height="150" Width="150"  AutoScale="True" MinValue="2" MaxValue="12" ValueFormat="{}{0}" />
+                        </StackPanel>
+                    </odc:OdcExpander>
+                </StackPanel>
+            </Grid>
+
+        <GridSplitter Grid.Row="1" Grid.Column="0" Background="#B7CAE2" HorizontalAlignment="Right"   VerticalAlignment="Stretch" Width="5"  Margin="5,0,0,0" />
+
+        <DockPanel Grid.Row="1" Grid.Column="1" >
+            <Border Background="{DynamicResource {ComponentResourceKey odc:Skins, RibbonWindowBgBrush}}"
+                    BorderBrush="{DynamicResource {ComponentResourceKey odc:Skins, RibbonBorderBrush}}"
+                    TextBlock.Foreground="{DynamicResource {ComponentResourceKey odc:Skins, WindowForegroundBrush}}" BorderThickness="1"
+                    Margin="0,4,0,4">
+                
+                    <!--<ExtendedGridControl:ExtendedDataGrid Name="edgResult"  HideColumnChooser="False" AutoGenerateColumns="True" GroupByControlVisibility="Hidden" VerticalAlignment="Top" HeadersVisibility="All">
+                    </ExtendedGridControl:ExtendedDataGrid>-->
+                    <!--.net Reflector 反编译生成  程序。。。Resources目录。。。baml文件-->
+                <ExtendedGridControl:ExtendedDataGrid Name="edgResult" Controls:DataGrid.RowHeaderWidth="17" CanUserAddRows="False" Controls:DataGrid.AutoGenerateColumns="False" GroupByControlVisibility="Hidden"  HideColumnChooser="False"  p4:Selector.IsSynchronizedWithCurrentItem="True" Controls:DataGrid.SelectionMode="Extended" Controls:DataGrid.SelectionUnit="CellOrRowHeader"  xmlns:p4="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:Controls="clr-namespace:ExtendedGrid.Microsoft.Windows.Controls;assembly=ExtendedGrid" xmlns:ExtendedGridControl="clr-namespace:ExtendedGrid.ExtendedGridControl;assembly=ExtendedGrid">
+                    <Controls:DataGrid.Columns>
+                        <ExtendedColumn:ExtendedDataGridTextColumn Controls:DataGridColumn.Header="关键词" AllowAutoFilter="False" Controls:DataGridBoundColumn.Binding="{Binding key}" xmlns:ExtendedColumn="clr-namespace:ExtendedGrid.ExtendedColumn;assembly=ExtendedGrid" />
+                        <ExtendedColumn:ExtendedDataGridTextColumn Controls:DataGridColumn.Header="整体指数" AllowAutoFilter="False" Controls:DataGridBoundColumn.Binding="{Binding index}" xmlns:ExtendedColumn="clr-namespace:ExtendedGrid.ExtendedColumn;assembly=ExtendedGrid" />
+                        <ExtendedColumn:ExtendedDataGridTextColumn Controls:DataGridColumn.Header="移动指数" AllowAutoFilter="False" Controls:DataGridBoundColumn.Binding="{Binding moblie}" xmlns:ExtendedColumn="clr-namespace:ExtendedGrid.ExtendedColumn;assembly=ExtendedGrid" />
+                    </Controls:DataGrid.Columns>
+                    <ExtendedGridControl:ExtendedDataGrid.FooterDataTemplate>
+                        <DataTemplate>
+                            <StackPanel StackPanel.Orientation="Horizontal">
+                                <TextBlock TextBlock.Text="行数:" TextBlock.FontWeight="Bold" />
+                                <TextBlock FrameworkElement.Margin="3,0,0,0" TextBlock.Foreground="#FF006400" TextBlock.Text="{Binding ElementName=edgResult,Path=Items.Count}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ExtendedGridControl:ExtendedDataGrid.FooterDataTemplate>
+                </ExtendedGridControl:ExtendedDataGrid>
+            </Border>
+        </DockPanel>
+            
+    </Grid>
+</UserControl>

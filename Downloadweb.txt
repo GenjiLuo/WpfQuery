@@ -1,0 +1,115 @@
+﻿http://www.zzhzxqw.com/
+
+        //public static List<String> getImageSrc(String htmlCode) {
+        //    List<String> imageSrcList = new List<String>();
+        //    Regex r = new Regex("<img.*?>", RegexOptions.IgnoreCase);
+        //    MatchCollection mc = r.Matches(htmlCode);
+        //    foreach (Match m in mc)
+        //    {
+        //        Regex imgstr = new Regex("src=\".*?\"", RegexOptions.IgnoreCase);
+        //        Match ma = imgstr.Match(m.Value);
+        //        string imgurl = ma.Value.Split('"')[1];
+        //        if (imgurl != "")
+        //        {
+        //            imageSrcList.Add(imgurl);
+        //        }
+        //    }
+        //    return imageSrcList;
+        //}
+
+        ////修改
+        //public static List<String> getScriptSrc(String htmlCode)
+        //{
+        //    List<String> imageSrcList = new List<String>();
+        //    string regexstr = "<script.*?>";
+        //    Regex r = new Regex(regexstr, RegexOptions.IgnoreCase);
+        //    MatchCollection mc = r.Matches(htmlCode);
+        //    foreach (Match m in mc)
+        //    {
+        //        if (m.Value.Contains("src="))
+        //        {
+        //            imageSrcList.Add(m.Value);
+        //        }
+        //    }
+        //    return imageSrcList;
+        //}
+
+
+
+		            //foreach (string src in getImageSrc(result))
+            //{
+            //    GetWebImage(src, foldername + "\\images" + "\\" + GetUrlFileName(src));
+            //}
+            //foreach (string src in getLinkHref(result))
+            //{
+            //    GetWebImage(src, foldername + "\\css" + "\\" + GetUrlFileName(src));
+            //}
+            //foreach (string src in getScriptSrc(result))
+            //{
+            //    GetWebImage(src, foldername + "\\js" + "\\" + GetUrlFileName(src));
+            //}
+
+
+
+			                //try
+                //{
+                //    result = GetWebClient(url);
+                //    //StreamWriter sw = new StreamWriter(filename, false, Encoding.GetEncoding(encodingstr));
+                //    //sw.Write(result);
+                //    //sw.Close();
+                //}
+                //catch (Exception ex)
+                //{
+                //    txtLog.Text += ex.Message + "\r\n";
+                //}
+                //string domain = "http://" + GetUrlDomainName(url);
+                //result = ConvertToAbsoluteUrls(result, new Uri(domain));
+                ////foreach (string src in getImageSrc(result))
+                ////{
+                ////    GetWebImage(src, foldername + "\\images" + "\\" + GetUrlFileName(src));
+                ////}
+                ////foreach (string src in getLinkHref(result))
+                ////{
+                ////    GetWebImage(src, foldername + "\\css" + "\\" + GetUrlFileName(src));
+                ////}
+                ////foreach (string src in getScriptSrc(result))
+                ////{
+                ////    GetWebImage(src, foldername + "\\js" + "\\" + GetUrlFileName(src));
+                ////}
+
+                ////新方法
+                //foreach (string src in imgList)
+                //{
+                //    GetWebImage(src, foldername + "\\images" + "\\" + GetUrlFileName(src));
+                //}
+                //foreach (string src in cssList)
+                //{
+                //    GetWebImage(src, foldername + "\\css" + "\\" + GetUrlFileName(src));
+                //}
+                //foreach (string src in jsList)
+                //{
+                //    GetWebImage(src, foldername + "\\js" + "\\" + GetUrlFileName(src));
+                //}
+                //foreach (string src in swfList)
+                //{
+                //    GetWebImage(src, foldername + "\\swf" + "\\" + GetUrlFileName(src));
+                //}
+
+                //StreamWriter sw2 = new StreamWriter(filename, false, Encoding.GetEncoding(encodingstr));
+                //sw2.Write(result);
+                //sw2.Close();
+
+
+
+
+				            //foreach (var css in doc.styleSheets)
+            //{
+            //    IHTMLStyleSheet element = (IHTMLStyleSheet)css;
+            //    string href = (string)element.getAttribute("href", 2);
+            //    if (href != null)
+            //    {
+            //        Uri addr = new Uri(relativeLocation, href);
+            //        css.href = addr.AbsoluteUri;
+            //        cssList.Add(addr.AbsoluteUri);
+            //    }
+            //}

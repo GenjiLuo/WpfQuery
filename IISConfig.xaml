@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="WpfQuery.IISConfig"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+            <Border BorderThickness="0,0,0,5" BorderBrush="#B7CAE2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Name="bottonIIS" Grid.Row="0" Grid.Column="0"  Content="IIS配置文件" ToolTip="IIS配置文件" Width="100" Height="40" Click="btIIS" />
+                    <Button Name="bottonExport" Grid.Row="0" Grid.Column="1"  Content="导出" ToolTip="导出" Width="60" Height="30" Click="btExport" />
+                </Grid>
+            </Border>
+        </DockPanel>
+        <GridSplitter Grid.Row="1" Grid.Column="0" Background="#B7CAE2" HorizontalAlignment="Right"   VerticalAlignment="Stretch" Width="5"  />
+        <!--ListView 隔行换色-->
+        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid Name="dgQueryResult" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" DockPanel.Dock="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="描述" Binding="{Binding disc}"/>
+                    <DataGridTextColumn Header="标识" Binding="{Binding identifier}"/>
+                    <DataGridTextColumn Header="状态" Binding="{Binding status}"/>
+                    <DataGridTextColumn Header="主机头值"  Binding="{Binding hostheadervalue}"/>
+                    <DataGridTextColumn Header="IP地址"  Binding="{Binding ip}" />
+                    <DataGridTextColumn Header="端口"  Binding="{Binding port}" />
+                    <DataGridTextColumn Header="目录"  Binding="{Binding path}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</UserControl>

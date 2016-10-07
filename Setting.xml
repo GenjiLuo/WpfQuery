@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <Setting Page="Pages\SystemPage.xaml" Title="系统" Description=""/>
+  <Setting Page="Pages\ThemePage.xaml" Title="主题" Description=""/>
+</Settings>

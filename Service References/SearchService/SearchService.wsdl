@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/sms/v3" xmlns:common="http://api.baidu.com/sem/common/v2" name="SearchService" targetNamespace="https://api.baidu.com/sem/sms/v3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/sms/v3">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/sms/v3/SearchService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:complexType name="KeywordInfo">
+        <xsd:sequence>
+          <xsd:element name="keywordId" type="xsd:long" />
+          <xsd:element name="keyword" type="xsd:string" />
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element name="adgroupName" type="xsd:string" />
+          <xsd:element name="campaignId" type="xsd:long" />
+          <xsd:element name="campaignName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AdgroupInfo">
+        <xsd:sequence>
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element name="adgroupName" type="xsd:string" />
+          <xsd:element name="campaignId" type="xsd:long" />
+          <xsd:element name="campaignName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CampaignInfo">
+        <xsd:sequence>
+          <xsd:element name="campaignId" type="xsd:long" />
+          <xsd:element name="campaignName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getKeywordBySearchRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="searchWord" type="xsd:string" />
+            <xsd:element minOccurs="0" name="startNum" type="xsd:int" />
+            <xsd:element minOccurs="0" name="endNum" type="xsd:int" />
+            <xsd:element minOccurs="0" name="campaignId" type="xsd:long" />
+            <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+            <xsd:element name="searchType" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordBySearchResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="moreWord" type="xsd:int" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordInfos" type="tns:KeywordInfo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAdgroupBySearchRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="adgroupName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="startNum" type="xsd:int" />
+            <xsd:element minOccurs="0" name="endNum" type="xsd:int" />
+            <xsd:element minOccurs="0" name="campaignId" type="xsd:long" />
+            <xsd:element name="searchType" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAdgroupBySearchResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="moreAdgroup" type="xsd:int" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="adgroupInfos" type="tns:AdgroupInfo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCampaignBySearchRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="campaignName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="startNum" type="xsd:int" />
+            <xsd:element minOccurs="0" name="endNum" type="xsd:int" />
+            <xsd:element name="searchType" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCampaignBySearchResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="moreCampaign" type="xsd:int" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="campaignInfos" type="tns:CampaignInfo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="CountInfo">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="count" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getCountByIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" name="idType" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="ids" type="xsd:long" />
+            <xsd:element minOccurs="1" name="countType" type="xsd:int" />
+            <xsd:element minOccurs="1" name="status" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCountByIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="countInfos" type="tns:CountInfo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getKeywordBySearchRequest">
+    <wsdl:part name="parameters" element="tns:getKeywordBySearchRequest" />
+  </wsdl:message>
+  <wsdl:message name="getCountByIdResponse">
+    <wsdl:part name="parameters" element="tns:getCountByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCountByIdRequest">
+    <wsdl:part name="parameters" element="tns:getCountByIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getCampaignBySearchResponse">
+    <wsdl:part name="parameters" element="tns:getCampaignBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCampaignBySearchRequest">
+    <wsdl:part name="parameters" element="tns:getCampaignBySearchRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAdgroupBySearchResponse">
+    <wsdl:part name="parameters" element="tns:getAdgroupBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAdgroupBySearchRequest">
+    <wsdl:part name="parameters" element="tns:getAdgroupBySearchRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordBySearchResponse">
+    <wsdl:part name="parameters" element="tns:getKeywordBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:portType name="SearchService">
+    <wsdl:operation name="getKeywordBySearch">
+      <wsdl:input message="tns:getKeywordBySearchRequest" />
+      <wsdl:output message="tns:getKeywordBySearchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAdgroupBySearch">
+      <wsdl:input message="tns:getAdgroupBySearchRequest" />
+      <wsdl:output message="tns:getAdgroupBySearchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCampaignBySearch">
+      <wsdl:input message="tns:getCampaignBySearchRequest" />
+      <wsdl:output message="tns:getCampaignBySearchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCountById">
+      <wsdl:input message="tns:getCountByIdRequest" />
+      <wsdl:output message="tns:getCountByIdResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SearchServiceSOAP" type="tns:SearchService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getKeywordBySearch">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/SearchService/getKeywordBySearch" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdgroupBySearch">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/SearchService/getAdgroupBySearch" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCampaignBySearch">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/SearchService/getCampaignBySearch" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountById">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/SearchService/getCountById" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SearchService">
+    <wsdl:port name="SearchService" binding="tns:SearchServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/sms/v3/SearchService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

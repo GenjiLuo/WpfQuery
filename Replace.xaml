@@ -1,0 +1,9 @@
+﻿<Window x:Class="WpfQuery.Replace"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="标题替换文本--一行一个" Height="300" Width="300" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <DockPanel>
+        <xctk:WatermarkTextBox Name="wtReplacedoc" Watermark="请输入标题替换文本，一行一个" AcceptsReturn="True" />
+    </DockPanel>
+</Window>

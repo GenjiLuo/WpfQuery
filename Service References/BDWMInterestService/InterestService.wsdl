@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/nms/v2" xmlns:common="http://api.baidu.com/sem/common/v2" name="InterestService" targetNamespace="https://api.baidu.com/sem/nms/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/nms/v2">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/nms/v2/InterestService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:complexType name="InterestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="interestId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="interestName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="parentId" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomInterestCollectionType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+          <xsd:element name="interests" type="tns:InterestType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomInterestType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="customItId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="customItName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customItCollections" type="tns:CustomInterestCollectionType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getInterestRequest">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getInterestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="interestTypes" type="tns:InterestType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAllCustomInterestRequest">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAllCustomInterestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="customerInterestTypes" type="tns:CustomInterestType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCustomInterestRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="customItIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCustomInterestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="customerInterestTypes" type="tns:CustomInterestType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllCustomInterestResponse">
+    <wsdl:part name="parameters" element="tns:getAllCustomInterestResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInterestResponse">
+    <wsdl:part name="parameters" element="tns:getInterestResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCustomInterestRequest">
+    <wsdl:part name="parameters" element="tns:getCustomInterestRequest" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:message name="getInterestRequest">
+    <wsdl:part name="parameters" element="tns:getInterestRequest" />
+  </wsdl:message>
+  <wsdl:message name="getCustomInterestResponse">
+    <wsdl:part name="parameters" element="tns:getCustomInterestResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllCustomInterestRequest">
+    <wsdl:part name="parameters" element="tns:getAllCustomInterestRequest" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="InterestService">
+    <wsdl:operation name="getInterest">
+      <wsdl:input message="tns:getInterestRequest" />
+      <wsdl:output message="tns:getInterestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCustomInterest">
+      <wsdl:input message="tns:getAllCustomInterestRequest" />
+      <wsdl:output message="tns:getAllCustomInterestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomInterest">
+      <wsdl:input message="tns:getCustomInterestRequest" />
+      <wsdl:output message="tns:getCustomInterestResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InterestServiceSOAP" type="tns:InterestService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getInterest">
+      <soap:operation soapAction="https://api.baidu.com/sem/nms/v2/InterestService/getInterest" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCustomInterest">
+      <soap:operation soapAction="https://api.baidu.com/sem/nms/v2/InterestService/getAllCustomInterest" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomInterest">
+      <soap:operation soapAction="https://api.baidu.com/sem/nms/v2/InterestService/getCustomInterest" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InterestService">
+    <wsdl:port name="InterestService" binding="tns:InterestServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/nms/v2/InterestService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

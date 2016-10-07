@@ -1,0 +1,23 @@
+﻿<Page x:Class="WpfQuery.Pages.ThemePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="ThemePage">
+
+    <Grid>
+        <GroupBox  Header="主题设置" Margin="8,0,0,0">
+            <StackPanel Margin="0,10,0,0">
+                <WrapPanel VerticalAlignment="Center">
+                    <TextBlock Margin="0,3,5,0">程序主题：</TextBlock>
+                    <ComboBox Name="cbTheme">
+                        <ComboBoxItem Content="aaa主题"/>
+                        <ComboBoxItem Content="bbb主题"/>
+                    </ComboBox>
+                </WrapPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Page>

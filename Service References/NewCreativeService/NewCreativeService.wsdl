@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/sms/v3" xmlns:common="http://api.baidu.com/sem/common/v2" name="NewCreativeService" targetNamespace="https://api.baidu.com/sem/sms/v3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/sms/v3">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/sms/v3/NewCreativeService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:element name="GetSublinkIdByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GroupSublinkId">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkIds" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetSublinkIdByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupSublinkIds" type="tns:GroupSublinkId" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetSublinkBySublinkIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="sublinkIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="SublinkInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" name="description" type="xsd:string" />
+          <xsd:element minOccurs="1" name="destinationUrl" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SublinkType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="sublinkId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkInfos" type="tns:SublinkInfo" />
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="pause" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetSublinkBySublinkIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddSublinkRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddSublinkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateSublinkRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateSublinkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeleteSublinkRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeleteSublinkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="optResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="MobileSublinkInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" name="description" type="xsd:string" />
+          <xsd:element minOccurs="1" name="destinationUrl" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MobileSublinkType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="mobileSublinkId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="mobileSublinkInfos" type="tns:MobileSublinkInfo" />
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="pause" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AddMobileSublinkRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="mobileSublinkTypes" type="tns:MobileSublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddMobileSublinkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="mobileSublinkTypes" type="tns:MobileSublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateMobileSublinkRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="mobileSublinkTypes" type="tns:MobileSublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateMobileSublinkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="mobileSublinkTypes" type="tns:MobileSublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GroupMobileSublinkId">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="mobileSublinkIds" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetMobileSublinkIdByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetMobileSublinkIdByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupMobileSublinkIds" type="tns:GroupMobileSublinkId" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetMobileSublinkBySublinkIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="mobileSublinkIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetMobileSublinkBySublinkIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="mobileSublinkTypes" type="tns:MobileSublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="PhoneType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="phoneId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="phoneNum" type="xsd:string" />
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="pause" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AddPhoneRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="phoneTypes" type="tns:PhoneType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddPhoneResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="phoneTypes" type="tns:PhoneType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdatePhoneRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="phoneTypes" type="tns:PhoneType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdatePhoneResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="phoneTypes" type="tns:PhoneType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GroupPhoneId">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="phoneIds" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetPhoneIdByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetPhoneIdByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupPhoneIds" type="tns:GroupPhoneId" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetPhoneByPhoneIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="phoneIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetPhoneByPhoneIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="phoneTypes" type="tns:PhoneType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="BridgeType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="bridgeId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="pause" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="addBridgeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="bridgeTypes" type="tns:BridgeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addBridgeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="bridgeTypes" type="tns:BridgeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateBridgeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="bridgeTypes" type="tns:BridgeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateBridgeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="bridgeTypes" type="tns:BridgeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GroupBridgeId">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="bridgeIds" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getBridgeIdByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBridgeIdByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupBridgeIds" type="tns:GroupBridgeId" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBridgeByBridgeIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="bridgeIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBridgeByBridgeIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="bridgeTypes" type="tns:BridgeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addBridgeResponse">
+    <wsdl:part name="parameters" element="tns:addBridgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPhoneRequest">
+    <wsdl:part name="parameters" element="tns:AddPhoneRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetMobileSublinkBySublinkIdResponse">
+    <wsdl:part name="parameters" element="tns:GetMobileSublinkBySublinkIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPhoneResponse">
+    <wsdl:part name="parameters" element="tns:AddPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMobileSublinkBySublinkIdRequest">
+    <wsdl:part name="parameters" element="tns:GetMobileSublinkBySublinkIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddSublinkRequest">
+    <wsdl:part name="parameters" element="tns:AddSublinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateBridgeRequest">
+    <wsdl:part name="parameters" element="tns:updateBridgeRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePhoneResponse">
+    <wsdl:part name="parameters" element="tns:UpdatePhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddMobileSublinkResponse">
+    <wsdl:part name="parameters" element="tns:AddMobileSublinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhoneByPhoneIdResponse">
+    <wsdl:part name="parameters" element="tns:GetPhoneByPhoneIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSublinkBySublinkIdResponse">
+    <wsdl:part name="parameters" element="tns:GetSublinkBySublinkIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSublinkBySublinkIdRequest">
+    <wsdl:part name="parameters" element="tns:GetSublinkBySublinkIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePhoneRequest">
+    <wsdl:part name="parameters" element="tns:UpdatePhoneRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetSublinkIdByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:GetSublinkIdByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileSublinkResponse">
+    <wsdl:part name="parameters" element="tns:UpdateMobileSublinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhoneIdByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:GetPhoneIdByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetSublinkIdByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:GetSublinkIdByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBridgeIdByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:getBridgeIdByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSublinkRequest">
+    <wsdl:part name="parameters" element="tns:UpdateSublinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddMobileSublinkRequest">
+    <wsdl:part name="parameters" element="tns:AddMobileSublinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetMobileSublinkIdByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:GetMobileSublinkIdByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileSublinkRequest">
+    <wsdl:part name="parameters" element="tns:UpdateMobileSublinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="addBridgeRequest">
+    <wsdl:part name="parameters" element="tns:addBridgeRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddSublinkResponse">
+    <wsdl:part name="parameters" element="tns:AddSublinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBridgeByBridgeIdRequest">
+    <wsdl:part name="parameters" element="tns:getBridgeByBridgeIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPhoneIdByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:GetPhoneIdByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSublinkResponse">
+    <wsdl:part name="parameters" element="tns:DeleteSublinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMobileSublinkIdByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:GetMobileSublinkIdByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSublinkResponse">
+    <wsdl:part name="parameters" element="tns:UpdateSublinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBridgeByBridgeIdResponse">
+    <wsdl:part name="parameters" element="tns:getBridgeByBridgeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBridgeIdByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:getBridgeIdByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSublinkRequest">
+    <wsdl:part name="parameters" element="tns:DeleteSublinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateBridgeResponse">
+    <wsdl:part name="parameters" element="tns:updateBridgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhoneByPhoneIdRequest">
+    <wsdl:part name="parameters" element="tns:GetPhoneByPhoneIdRequest" />
+  </wsdl:message>
+  <wsdl:portType name="NewCreativeService">
+    <wsdl:operation name="getSublinkIdByAdgroupId">
+      <wsdl:input message="tns:GetSublinkIdByAdgroupIdRequest" />
+      <wsdl:output message="tns:GetSublinkIdByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSublinkBySublinkId">
+      <wsdl:input message="tns:GetSublinkBySublinkIdRequest" />
+      <wsdl:output message="tns:GetSublinkBySublinkIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addSublink">
+      <wsdl:input message="tns:AddSublinkRequest" />
+      <wsdl:output message="tns:AddSublinkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSublink">
+      <wsdl:input message="tns:UpdateSublinkRequest" />
+      <wsdl:output message="tns:UpdateSublinkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSublink">
+      <wsdl:input message="tns:DeleteSublinkRequest" />
+      <wsdl:output message="tns:DeleteSublinkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addMobileSublink">
+      <wsdl:input message="tns:AddMobileSublinkRequest" />
+      <wsdl:output message="tns:AddMobileSublinkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateMobileSublink">
+      <wsdl:input message="tns:UpdateMobileSublinkRequest" />
+      <wsdl:output message="tns:UpdateMobileSublinkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMobileSublinkIdByAdgroupId">
+      <wsdl:input message="tns:GetMobileSublinkIdByAdgroupIdRequest" />
+      <wsdl:output message="tns:GetMobileSublinkIdByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMobileSublinkBySublinkId">
+      <wsdl:input message="tns:GetMobileSublinkBySublinkIdRequest" />
+      <wsdl:output message="tns:GetMobileSublinkBySublinkIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addPhone">
+      <wsdl:input message="tns:AddPhoneRequest" />
+      <wsdl:output message="tns:AddPhoneResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePhone">
+      <wsdl:input message="tns:UpdatePhoneRequest" />
+      <wsdl:output message="tns:UpdatePhoneResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneIdByAdgroupId">
+      <wsdl:input message="tns:GetPhoneIdByAdgroupIdRequest" />
+      <wsdl:output message="tns:GetPhoneIdByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneByPhoneId">
+      <wsdl:input message="tns:GetPhoneByPhoneIdRequest" />
+      <wsdl:output message="tns:GetPhoneByPhoneIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addBridge">
+      <wsdl:input message="tns:addBridgeRequest" />
+      <wsdl:output message="tns:addBridgeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateBridge">
+      <wsdl:input message="tns:updateBridgeRequest" />
+      <wsdl:output message="tns:updateBridgeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBridgeIdByAdgroupId">
+      <wsdl:input message="tns:getBridgeIdByAdgroupIdRequest" />
+      <wsdl:output message="tns:getBridgeIdByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBridgeByBridgeId">
+      <wsdl:input message="tns:getBridgeByBridgeIdRequest" />
+      <wsdl:output message="tns:getBridgeByBridgeIdResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NewCreativeServiceSOAP" type="tns:NewCreativeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getSublinkIdByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/getSublinkIdByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSublinkBySublinkId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/getSublinkBySublinkId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSublink">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/addSublink" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSublink">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/updateSublink" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSublink">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/deleteSublink" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMobileSublink">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/addMobileSublink" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateMobileSublink">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/updateMobileSublink" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMobileSublinkIdByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/getMobileSublinkIdByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMobileSublinkBySublinkId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/getMobileSublinkBySublinkId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPhone">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/addPhone" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePhone">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/updatePhone" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneIdByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/getPhoneIdByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneByPhoneId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/getPhoneByPhoneId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBridge">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/addBridge" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBridge">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/updateBridge" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBridgeIdByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/getBridgeIdByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBridgeByBridgeId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v3/NewCreativeService/getBridgeByBridgeId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewCreativeService">
+    <wsdl:port name="NewCreativeService" binding="tns:NewCreativeServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/sms/v3/NewCreativeService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

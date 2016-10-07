@@ -1,0 +1,1516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0D74CE92-4A77-43B4-BA41-D4D4F2AD67EB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WpfQuery</RootNamespace>
+    <AssemblyName>WpfQuery</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Fluent.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevZest.SplitContainer">
+      <HintPath>C:\Users\KOOK\Downloads\SplitContainer1\SplitContainer\SplitContainerDemo\bin\Debug\DevZest.SplitContainer.dll</HintPath>
+    </Reference>
+    <Reference Include="DocaLabs.Controls">
+      <HintPath>..\..\..\jingke\OverflowProgressBar_src\bin\Release\DocaLabs.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="extendedgrid">
+      <HintPath>c:\users\kook\downloads\debug\extendedgrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Fluent">
+      <HintPath>E:\wrscode\VS_WPF\Fluent Ribbon Control Suite 2.1.0 Prerelease g\.NET 4.5\Assembly\Release\Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\ScrapySharp.2.2.62\lib\net40\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammer.SpinningWheel">
+      <HintPath>C:\Users\KOOK\Downloads\【批量下载】Hammer.SpinningWheel.v2.0等\Taotai\spinningwheel-30447\src\SpinningWheel.Demo\bin\Debug\Hammer.SpinningWheel.dll</HintPath>
+    </Reference>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification">
+      <HintPath>E:\wrscode\VS_WPF\TLAgent.Ribbon.App.DemoDock4\TLAgent.Ribbon.App.Demo - Dock4\TLAgent.Ribbon.CommLib\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ScrapySharp.2.2.62\lib\net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>C:\Users\KOOK\Downloads\AvalonEdit_4.3.1_Source\bin\Debug\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Users\KOOK\Desktop\xxx\microsoft.mshtml.dll\microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <HintPath>E:\wrscode\VS_WPF\WpfControlKit\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Odyssey">
+      <HintPath>C:\Users\KOOK\Downloads\odyssey-79962\Odyssey\Demos\bin\Release\Odyssey.dll</HintPath>
+    </Reference>
+    <Reference Include="org.in2bits.MyXls">
+      <HintPath>..\..\JKArticle\JKArticle\bin\Debug\org.in2bits.MyXls.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="PropertyTools.Wpf">
+      <HintPath>C:\Users\KOOK\Downloads\propertytools-a147cdf90345\propertytools_a147cdf90345\Source\Examples\Controls\ControlDemos\bin\Debug\PropertyTools.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="ScrapySharp">
+      <HintPath>..\packages\ScrapySharp.2.2.62\lib\net40\ScrapySharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ScrapySharp.Core">
+      <HintPath>..\packages\ScrapySharp.2.2.62\lib\net40\ScrapySharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SentenceSplitLib">
+      <HintPath>E:\wrscode\分词\SentenceSplit\SentenceSplitLib\bin\Debug\SentenceSplitLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Tomers.WPF.Themes">
+      <HintPath>E:\Down\WPF皮肤控件\SkinLoaderTester\bin\Debug\Tomers.WPF.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPF.MDI, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\KOOK\Downloads\WPF.MDI\WPF.MDI\bin\Debug\WPF.MDI.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>E:\wrscode\VS_WPF\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfGauge, Version=2013.5.27.1000, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\KOOK\Downloads\【批量下载】Hammer.SpinningWheel.v2.0等\Taotai\wpfgauge-29680\WpfGauge\WpfGauge.Test\bin\Debug\WpfGauge.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFVisifire.Charts">
+      <HintPath>E:\wrscode\VS_WPF\WPFVisifire.Charts\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>E:\wrscode\VS_WPF\TLAgent.SecurityManager.WPF.Avalondock.Demo\TLAgent.SecurityManager.WPF\TLAgent.CommLib\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Expression">
+      <HintPath>E:\wrscode\VS_WPF\TLAgent.SecurityManager.WPF.Avalondock.Demo\TLAgent.SecurityManager.WPF\TLAgent.CommLib\Xceed.Wpf.AvalonDock.Themes.Expression.dll</HintPath>
+    </Reference>
+    <Reference Include="xceed.wpf.toolkit">
+      <HintPath>e:\wrscode\vs_wpf\extendedwpftoolkit_binaries\xceed.wpf.toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddParamDialog.xaml.cs">
+      <DependentUpon>AddParamDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BaiduIndex.xaml.cs">
+      <DependentUpon>BaiduIndex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BasicInfo.xaml.cs">
+      <DependentUpon>BasicInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BDKeywordRecommend.xaml.cs">
+      <DependentUpon>BDKeywordRecommend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BDWMInterest.xaml.cs">
+      <DependentUpon>BDWMInterest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BDWMKeywordRecommend.xaml.cs">
+      <DependentUpon>BDWMKeywordRecommend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="CreativeCollection.xaml.cs">
+      <DependentUpon>CreativeCollection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DelDomain.xaml.cs">
+      <DependentUpon>DelDomain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadWeb.xaml.cs">
+      <DependentUpon>DownloadWeb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Downword.xaml.cs">
+      <DependentUpon>Downword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelWriter.cs" />
+    <Compile Include="Extention\ListSortDirector.cs" />
+    <Compile Include="Extention\ListViewBehavior.cs" />
+    <Compile Include="Extention\SortInfo.cs" />
+    <Compile Include="Extention\UIElementAdorner.cs" />
+    <Compile Include="Gather.xaml.cs">
+      <DependentUpon>Gather.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HttpHelper.cs" />
+    <Compile Include="IISConfig.xaml.cs">
+      <DependentUpon>IISConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyCover.xaml.cs">
+      <DependentUpon>KeyCover.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyDig.xaml.cs">
+      <DependentUpon>KeyDig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConditionQuery.xaml.cs">
+      <DependentUpon>ConditionQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeywordAnalyze.xaml.cs">
+      <DependentUpon>KeywordAnalyze.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogParser.xaml.cs">
+      <DependentUpon>LogParser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SystemPage.xaml.cs">
+      <DependentUpon>SystemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ThemePage.xaml.cs">
+      <DependentUpon>ThemePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ping.xaml.cs">
+      <DependentUpon>Ping.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlatformQuery.xaml.cs">
+      <DependentUpon>PlatformQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Post.xaml.cs">
+      <DependentUpon>Post.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PostPrarm.xaml.cs">
+      <DependentUpon>PostPrarm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PostToUrl.cs" />
+    <Compile Include="RankQuery.xaml.cs">
+      <DependentUpon>RankQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RankStat.xaml.cs">
+      <DependentUpon>RankStat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RelatedSearch.xaml.cs">
+      <DependentUpon>RelatedSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Replace.xaml.cs">
+      <DependentUpon>Replace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SentenceSplit.xaml.cs">
+      <DependentUpon>SentenceSplit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AccountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AdgroupService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BDWMAccountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BDWMInterestService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BDWMKRService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BulkJobService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CampaignService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CreativeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\KeywordService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\KRService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NewCreativeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ReportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SearchService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SgAccountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SgKRService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SimulationBrowser.xaml.cs">
+      <DependentUpon>SimulationBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SogouKRService.xaml.cs">
+      <DependentUpon>SogouKRService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SogouAccount.xaml.cs">
+      <DependentUpon>SogouAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TitleQuery.xaml.cs">
+      <DependentUpon>TitleQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingDlg.xaml.cs">
+      <DependentUpon>WaitingDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XmlHelper.cs" />
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddParamDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BaiduAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BaiduIndex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BasicInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BDKeywordRecommend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BDWMInterest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BDWMKeywordRecommend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreativeCollection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DelDomain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DownloadWeb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Downword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gather.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IISConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IncludeQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KeyCover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KeyDig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConditionQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KeywordAnalyze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogParser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaiduAccount.xaml.cs">
+      <DependentUpon>BaiduAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IncludeQuery.xaml.cs">
+      <DependentUpon>IncludeQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SystemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ThemePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlatformQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Post.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PostPrarm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RankQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RankStat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RelatedSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Replace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SentenceSplit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SimulationBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SogouKRService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SogouAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TitleQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaitingDlg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\AccountService\AccountService.wsdl" />
+    <None Include="Service References\AccountService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\WpfQuery.AccountService.AccountInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\WpfQuery.AccountService.getAccountInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\WpfQuery.AccountService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\WpfQuery.AccountService.updateAccountInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\AdgroupService.wsdl" />
+    <None Include="Service References\AdgroupService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.addAdgroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.AdgroupType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.CampaignAdgroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.CampaignAdgroupId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.deleteAdgroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.getAdgroupByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.getAdgroupByCampaignIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.getAdgroupIdByCampaignIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.getAllAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdgroupService\WpfQuery.AdgroupService.updateAdgroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMAccountService\AccountService.wsdl" />
+    <None Include="Service References\BDWMAccountService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BDWMAccountService\WpfQuery.BDWMAccountService.AccountInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMAccountService\WpfQuery.BDWMAccountService.getAccountInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMAccountService\WpfQuery.BDWMAccountService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMInterestService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BDWMInterestService\InterestService.wsdl" />
+    <None Include="Service References\BDWMInterestService\WpfQuery.BDWMInterestService.CustomInterestType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMInterestService\WpfQuery.BDWMInterestService.getAllCustomInterestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMInterestService\WpfQuery.BDWMInterestService.getCustomInterestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMInterestService\WpfQuery.BDWMInterestService.getInterestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMInterestService\WpfQuery.BDWMInterestService.InterestType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMInterestService\WpfQuery.BDWMInterestService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMKRService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BDWMKRService\KRService.wsdl" />
+    <None Include="Service References\BDWMKRService\WpfQuery.BDWMKRService.getKRAndSuggestBySeedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMKRService\WpfQuery.BDWMKRService.getKRBySeedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMKRService\WpfQuery.BDWMKRService.getKRSuggestBySeedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMKRService\WpfQuery.BDWMKRService.KRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMKRService\WpfQuery.BDWMKRService.KRResultType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMKRService\WpfQuery.BDWMKRService.KRSuggestResultType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BDWMKRService\WpfQuery.BDWMKRService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\BulkJobService.wsdl" />
+    <None Include="Service References\BulkJobService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.cancelDownloadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.ChangedAdgroupIdType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.ChangedCampaignIdType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.ChangedItemIdType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.ChangedItemType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.ChangedNewCreativeScaleType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.ChangedNewCreativeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.FilePathType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getAllChangedObjectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getAllObjectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getChangedAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getChangedCampaignIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getChangedIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getChangedItemIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getChangedNewCreativeIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getChangedScaleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getFilePathResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getFileStateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.getSelectedObjectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BulkJobService\WpfQuery.BulkJobService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CampaignService\CampaignService.wsdl" />
+    <None Include="Service References\CampaignService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CampaignService\WpfQuery.CampaignService.addCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CampaignService\WpfQuery.CampaignService.CampaignType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CampaignService\WpfQuery.CampaignService.deleteCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CampaignService\WpfQuery.CampaignService.getAllCampaignIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CampaignService\WpfQuery.CampaignService.getAllCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CampaignService\WpfQuery.CampaignService.getCampaignByCampaignIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CampaignService\WpfQuery.CampaignService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CampaignService\WpfQuery.CampaignService.updateCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CreativeService\CreativeService.wsdl" />
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.activateCreativeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.addCreativeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.CreativeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.deleteCreativeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.getCreativeByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.getCreativeByCreativeIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.getCreativeIdByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.getCreativeStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.getCreativeStatusZipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.GroupCreative.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.GroupCreativeId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.StatusType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CreativeService\WpfQuery.CreativeService.updateCreativeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\KeywordService\KeywordService.wsdl" />
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.activateKeywordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.addKeywordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.deleteKeywordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.getKeyword10QualityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.getKeywordByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.getKeywordByKeywordIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.getKeywordIdByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.getKeywordQualityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.getKeywordQualityZipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.getKeywordStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.getKeywordStatusZipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.GroupKeyword.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.GroupKeywordId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.KeywordType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.Quality10Type.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.QualityType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.StatusType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KeywordService\WpfQuery.KeywordService.updateKeywordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\KRService\KRService.wsdl" />
+    <None Include="Service References\KRService\WpfQuery.KRService.AutoAdGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getAdGroupBySeedWordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getKRByMultiSeedWordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getKRbySeedUrlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getKRbySeedWordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getKRCustomResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getKRFileIdbySeedWordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getKRFilePathResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getKRFileStateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getKRQuotaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getSeedUrlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.getSeedWordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.KRResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KRService\WpfQuery.KRService.SeedUrl.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewCreativeService\NewCreativeService.wsdl" />
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.addBridgeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.addMobileSublinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.addPhoneResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.addSublinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.BridgeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.deleteSublinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.getBridgeByBridgeIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.getBridgeIdByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.getMobileSublinkBySublinkIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.getMobileSublinkIdByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.getPhoneByPhoneIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.getPhoneIdByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.getSublinkBySublinkIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.getSublinkIdByAdgroupIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.GroupBridgeId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.GroupMobileSublinkId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.GroupPhoneId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.GroupSublinkId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.MobileSublinkType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.PhoneType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.SublinkType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.updateBridgeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.updateMobileSublinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.updatePhoneResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewCreativeService\WpfQuery.NewCreativeService.updateSublinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportService\ReportService.wsdl" />
+    <None Include="Service References\ReportService\WpfQuery.ReportService.getProfessionalReportIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.getRealTimeDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.getRealTimePairDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.getRealTimeQueryDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.getReportFileUrlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.getReportStateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.RealTimePairResultType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.RealTimeQueryResultType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.RealTimeResultType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\WpfQuery.ReportService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SearchService\SearchService.wsdl" />
+    <None Include="Service References\SearchService\WpfQuery.SearchService.AdgroupInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\WpfQuery.SearchService.CampaignInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\WpfQuery.SearchService.CountInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\WpfQuery.SearchService.getAdgroupBySearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\WpfQuery.SearchService.getCampaignBySearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\WpfQuery.SearchService.getCountByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\WpfQuery.SearchService.getKeywordBySearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\WpfQuery.SearchService.KeywordInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SearchService\WpfQuery.SearchService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\AccountService.wsdl" />
+    <None Include="Service References\SgAccountService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.AccountInfoType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.ChangedCpcGrpIdType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.ChangedCpcIdeaIdType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.ChangedCpcIdType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.ChangedCpcPlanIdType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.getAccountInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.getChangedCpcGrpIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.getChangedCpcMaterialIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.getChangedCpcPlanIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.getChangedIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgAccountService\WpfQuery.SgAccountService.updateAccountInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgKRService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SgKRService\KRService.wsdl" />
+    <None Include="Service References\SgKRService\WpfQuery.SgKRService.getKRBySeedWordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgKRService\WpfQuery.SgKRService.getKRCustomResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgKRService\WpfQuery.SgKRService.getKRFileIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgKRService\WpfQuery.SgKRService.getKRFilePathResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgKRService\WpfQuery.SgKRService.getKRFileStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgKRService\WpfQuery.SgKRService.KRResultType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgKRService\WpfQuery.SgKRService.ResHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SgKRService\WpfQuery.SgKRService.SeedWordKRResultType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Blue.png" />
+    <Resource Include="Images\BlueLarge.png" />
+    <Resource Include="Images\Brown.png" />
+    <Resource Include="Images\BrownLarge.png" />
+    <Resource Include="Images\Fluent.ico" />
+    <Resource Include="Images\Gray.png" />
+    <Resource Include="Images\GrayLarge.png" />
+    <Resource Include="Images\Green.png" />
+    <Resource Include="Images\GreenLarge.png" />
+    <Resource Include="Images\Orange.png" />
+    <Resource Include="Images\OrangeLarge.png" />
+    <Resource Include="Images\Pink.png" />
+    <Resource Include="Images\PinkLarge.png" />
+    <Resource Include="Images\Red.png" />
+    <Resource Include="Images\RedLarge.png" />
+    <Resource Include="Images\Yellow.png" />
+    <Resource Include="Images\YellowLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Text.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\changePassword.ico" />
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\user.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\system.ico" />
+    <Resource Include="Images\systemlog.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\usergroup.ico" />
+    <Resource Include="Images\background6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\updates.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\includequery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rankquery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\keycover.png" />
+    <Resource Include="Images\linkdig.png" />
+    <Resource Include="Images\platformquery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\basic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\360.png" />
+    <Resource Include="Images\baidu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sogou.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\keydig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\notifyIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\crawler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sentencesplit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chinaz.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\aizhan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logparser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSUtil">
+      <Guid>{A7E75D86-41CD-4B6E-B4BD-CC2ED34B3FB0}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\post.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\forward-icon.png" />
+    <Resource Include="Images\pause-icon.png" />
+    <Resource Include="Images\set-icon.png" />
+    <Resource Include="Images\start-icon.png" />
+    <Resource Include="Images\stop-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rankstat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\360.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\baiduindex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\baiduindex1.png" />
+    <Resource Include="Images\baiduindex2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\keyanalyze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Setting.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\caiji.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AccountService\" />
+    <WCFMetadataStorage Include="Service References\AdgroupService\" />
+    <WCFMetadataStorage Include="Service References\BDWMAccountService\" />
+    <WCFMetadataStorage Include="Service References\BDWMInterestService\" />
+    <WCFMetadataStorage Include="Service References\BDWMKRService\" />
+    <WCFMetadataStorage Include="Service References\BulkJobService\" />
+    <WCFMetadataStorage Include="Service References\CampaignService\" />
+    <WCFMetadataStorage Include="Service References\CreativeService\" />
+    <WCFMetadataStorage Include="Service References\KeywordService\" />
+    <WCFMetadataStorage Include="Service References\KRService\" />
+    <WCFMetadataStorage Include="Service References\NewCreativeService\" />
+    <WCFMetadataStorage Include="Service References\ReportService\" />
+    <WCFMetadataStorage Include="Service References\SearchService\" />
+    <WCFMetadataStorage Include="Service References\SgAccountService\" />
+    <WCFMetadataStorage Include="Service References\SgKRService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AccountService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AccountService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CampaignService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CampaignService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CampaignService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdgroupService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdgroupService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdgroupService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KeywordService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KeywordService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KeywordService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CreativeService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CreativeService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CreativeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NewCreativeService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NewCreativeService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NewCreativeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReportService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReportService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReportService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KRService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KRService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KRService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BulkJobService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BulkJobService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BulkJobService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SearchService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SearchService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SearchService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\baidu2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\baidukr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMKRService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMKRService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMKRService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMAccountService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMAccountService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMAccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMInterestService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMInterestService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BDWMInterestService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\baiduxq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SgKRService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SgKRService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SgKRService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SgAccountService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SgAccountService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SgAccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sogou2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sogoukr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\skin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\creative.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iisconfig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\downword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\relatedword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Downloadweb.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

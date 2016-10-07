@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="WpfQuery.SentenceSplit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="0">
+            <xctk:WatermarkTextBox Name="txtContent" Watermark="请输入要分词的内容"   DockPanel.Dock="Top"  TextWrapping="Wrap"   AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="0,0,5,0" TextChanged="txtContent_TextChanged" />
+        </DockPanel>
+        <DockPanel Grid.Row="1" Grid.Column="0">
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Name="tbLength" Text="原始字符串长度：0" Margin="0,13,10,0" />
+                <CheckBox Content="忽略单个字" IsChecked="False"  Name="cbSingleChar" Margin="0,13,10,0" />
+                <Button Name="buttonQuery" Grid.Row="0" Grid.Column="0"  Content="分词"  Width="100" Height="40" Click="btQuery" />
+            </WrapPanel>
+        </DockPanel>
+        <DockPanel Grid.Row="2" Grid.Column="0">
+            <xctk:WatermarkTextBox Name="txtSSResult"  Watermark="分词结果"   DockPanel.Dock="Bottom"  TextWrapping="Wrap"   AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="0,0,5,0" />
+        </DockPanel>
+    </Grid>
+</UserControl>

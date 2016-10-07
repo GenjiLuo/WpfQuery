@@ -1,0 +1,65 @@
+﻿<Window x:Class="WpfQuery.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="关于查询计划" Height="200" Width="400" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DockPanel>
+            <ScrollViewer>
+                <TextBlock Name="tbAboutInfo" TextWrapping="Wrap">
+                <Run>程序名称：查询计划</Run>
+                <LineBreak></LineBreak>
+                <Run>编写者：吴荣山（北京京科）</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.1：架构，界面框架（Fluent+AvalonDock），加入收录功能</Run> 
+                <LineBreak></LineBreak>
+                <Run>版本号0.2：新增排名查询，加入超线程</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.3：新增平台查询</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.4：新增关键词覆盖查询</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.5：新增条件查询（WPFVisifire）</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.6：新增关键词挖掘功能，委托修改界面，WpfAnimatedGif，水印框（wpf.toolkit）</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.7：新增基本信息,查PR等（HtmlAgilityPack+ScrapySharp）</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.8：新增分词功能（SentenceSplit）</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.9：新增发布帖子</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.10：新增日志分析（Log Parser）</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.11：新增标题查询</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.12：新增排名统计</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.13：新增百度指数(Odyssey + ExtendedGrid + DevZest.SplitContainer + PropertyTools.Wpf + WpfGauge + SpinningWheel)</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.14：新增关键词分析（WPF.MDI）</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.15：引用百度API的Web服务,账号登陆</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.16：新增关键词推荐(日均搜索量等信息)(API)</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.17：新增百度网盟API(网盟关键词百度关闭)和Sogou推荐词</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.18：条件查询新增查询So,加入HttpHelper</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.20：条件查询新增查询Sogou</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.21：百度创意采集</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.22：通过IIS配置文件导出配置表</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.23：批量Ping</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.24：搜索下拉词</Run>
+                <LineBreak></LineBreak>
+                <Run>版本号0.25：搜索相关词</Run>
+                <LineBreak></LineBreak>
+                </TextBlock>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfQuery.WaitingDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        Title="WaitingDlg" Height="100" Width="400" WindowStyle="None" Background="Transparent" AllowsTransparency="True"
+        WindowStartupLocation="CenterOwner"
+        TextOptions.TextFormattingMode="Display">
+    <Grid>
+        <Border CornerRadius="5" Height="40" BorderBrush="Black" BorderThickness="1" Background="White" Width="350">
+            <Border.Effect>
+                <DropShadowEffect Color="Black"></DropShadowEffect>
+            </Border.Effect>
+            <Grid VerticalAlignment="Center">
+                <Image gif:ImageBehavior.AnimatedSource="Images\loading.gif" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <TextBlock Name="tbPrompt" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,7">任务执行中...</TextBlock>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,63 @@
+﻿<Window x:Class="WpfQuery.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="系统登录" Height="239" Width="370" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0">
+            <Border BorderThickness="1" BorderBrush="DarkGray">
+                <StackPanel Width="121" DockPanel.Dock="Left">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="Images/background6.jpg" Stretch="Fill" TileMode="None" />
+                    </StackPanel.Background>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+        <DockPanel Grid.Column="1">
+            <StackPanel DockPanel.Dock="Top"  Height="60" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="查询计划用户登录" VerticalAlignment="Center" FontFamily="Microsoft YaHei UI" FontSize="20" FontStyle="Normal" FontWeight="Bold" FontStretch="UltraCondensed" TextAlignment="Center" Foreground="RoyalBlue"></TextBlock>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="用户名: " DockPanel.Dock="Left" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Normal"></TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="0" Height="23"   x:Name="txtUserName" Width="140"  VerticalContentAlignment="Center" TabIndex="1"></TextBox>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="密     码:" VerticalAlignment="Center"></TextBlock>
+                    <PasswordBox Grid.Column="1" Grid.Row="1" Height="23"  VerticalContentAlignment="Center" x:Name="txtPassWorld" TabIndex="2"  />
+
+
+                </Grid>
+            </StackPanel>
+            <StackPanel>
+                <Grid Height="58">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel  Grid.Column="1"   Height="32">
+                        <Button Content="登录" Width="50" Height="25" TabIndex="3" ></Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Height="32">
+                        <Button  Content="取消" Width="50" Height="25" IsCancel="True" TabIndex="4"></Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </DockPanel >
+
+    </Grid>
+</Window>

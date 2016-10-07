@@ -1,0 +1,144 @@
+﻿<Fluent:RibbonWindow x:Class="WpfQuery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:ad="clr-namespace:Xceed.Wpf.AvalonDock;assembly=Xceed.Wpf.AvalonDock"
+        xmlns:themes="clr-namespace:Xceed.Wpf.AvalonDock.Themes;assembly=Xceed.Wpf.AvalonDock.Themes.Expression"
+        xmlns:xcad="clr-namespace:Xceed.Wpf.AvalonDock.Layout;assembly=Xceed.Wpf.AvalonDock"
+        Title="查询__北京京科"
+	    Width="650"
+	    Height="500"
+	    Background="#FFEBEDF0" 
+        x:Name="window" WindowState="Normal"  WindowStartupLocation="CenterScreen"
+        Icon="Images/Fluent.ico" Closed="window_Closed">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Fluent:Ribbon Grid.Row="0" AutomaticStateManagement="True" x:Name="ribbon">
+            <Fluent:Ribbon.QuickAccessItems>
+                <Fluent:QuickAccessMenuItem IsChecked="True" Target="{Binding ElementName=btnLogin}" />
+                <Fluent:QuickAccessMenuItem IsChecked="True" Target="{Binding ElementName=btnSkin}"/>
+            </Fluent:Ribbon.QuickAccessItems>
+
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage>
+                    <Fluent:BackstageTabControl>
+                        <Fluent:BackstageTabItem Header="新建" />
+                        <Fluent:Button Header="退出系统"  Icon="Images\close.png" Click="OnExitSystem" />
+                    </Fluent:BackstageTabControl>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+            
+            <Fluent:RibbonTabItem Header="开始" ReduceOrder="(P),(P),(P),(P),(P)">
+                <Fluent:RibbonGroupBox Header="帐号管理">
+                    <Fluent:Button Name="btnLogin"  Header="登录" Icon="Images\user.ico" LargeIcon="Images\user.ico" Click="Login" />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="选项">
+                    <Fluent:Button Header="系统设置" Icon="Images\systemlog.ico" LargeIcon="Images\systemlog.ico" Click="Setting" />
+                    <Fluent:Button Header="关于查询" Icon="Images\about.png" LargeIcon="Images\about.png" Click="About"/>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="其它">
+                    <Fluent:Button Name="btnSkin" Header="换肤" Icon="/WpfQuery;component/Images/skin.png" LargeIcon="/WpfQuery;component/Images/skin.png" Click="SkinClick" />
+                    <Fluent:Button Header="退出系统" Icon="Images\close.png" LargeIcon="Images\close.png" Click="OnExitSystem" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+           
+            <Fluent:RibbonTabItem Header="外推" ReduceOrder="(P),(P),(P),(P),(P)">
+                <Fluent:RibbonGroupBox Header="基本功能">
+                    <Fluent:Button Header="收录查询" Icon="Images\includequery.png" LargeIcon="Images\includequery.png"  Click="IncludeQuery" />
+                    <Fluent:Button Header="排名查询" Icon="Images\rankquery.png" LargeIcon="Images\rankquery.png" Click="RankQuery" />
+                    <Fluent:Button Header="标题排名" Icon="Images\title.png" LargeIcon="Images\title.png" Click="TitleQuery" ToolTip="查询页面标题的百度排名" />
+                    <Fluent:Button Header="排名统计" Icon="Images\rankstat.png" LargeIcon="Images\rankstat.png" Click="RankStat" ToolTip="查询主要关键词的在各搜索引擎的网站排名" />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="扩展功能">
+                    <Fluent:Button Header="平台查询" Icon="Images\platformquery.png" LargeIcon="Images\platformquery.png"  Click="PlatformQuery" />
+                    <Fluent:Button Header="条件查询" Icon="Images\linkdig.png" LargeIcon="Images\linkdig.png"  Click="ConditionQuery" />
+                    <Fluent:Button Header="覆盖查询" Icon="Images\keydig.png" LargeIcon="Images\keycover.png"  Click="KeyCover" />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="网站分析">
+                    <Fluent:Button Header="基本信息" Icon="Images\basic.png" LargeIcon="Images\basic.png"  Click="BasicInfo" />
+                    <Fluent:Button Header="日志分析" Icon="Images\logparser.png" LargeIcon="Images\logparser.png" Click="LogParser" />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="其他功能">
+                    <Fluent:Button Header="关键词挖掘" Icon="Images\keydig.png" LargeIcon="Images\keydig.png"  Click="KeyDig" />
+                    <Fluent:Button Header="模拟分词" Icon="Images\sentencesplit.png" LargeIcon="Images\sentencesplit.png" Click="SentenceSplit" />
+                    <Fluent:Button Header="发布帖子" Icon="Images\post.png" LargeIcon="Images\post.png" Click="Post"/>
+                    <Fluent:Button Header="采集文章" Icon="Images\caiji.png" LargeIcon="Images\caiji.png" Click="Gather"/>
+                    <Fluent:Button Header="单页下载" Icon="/WpfQuery;component/Images/ie.png" LargeIcon="/WpfQuery;component/Images/ie.png" Click="DownloadWeb"/>
+                    <Fluent:Button Header="下拉词" Icon="Images\downword.png" LargeIcon="Images\downword.png" Click="Downword"/>
+                    <Fluent:Button Header="相关搜索词" Icon="Images\relatedword.png" LargeIcon="Images\relatedword.png" Click="RelatedSearch"/>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="优化" ReduceOrder="(P),(P),(P),(P),(P)">
+                <Fluent:RibbonGroupBox Header="常用">
+                    <Fluent:Button Header="百度指数" Icon="/WpfQuery;component/Images/baiduindex.png" LargeIcon="/WpfQuery;component/Images/baiduindex.png" Click="BaiduIndex" />
+                    <Fluent:Button Header="关键词分析" Icon="/WpfQuery;component/Images/keyanalyze.png" LargeIcon="/WpfQuery;component/Images/keyanalyze.png" Click="KeywordAnalyze" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="技术" ReduceOrder="(P),(P),(P),(P),(P)">
+                <Fluent:RibbonGroupBox Header="常用">
+                    <Fluent:Button Header="IIS配置" Icon="/WpfQuery;component/Images/iisconfig.png" LargeIcon="/WpfQuery;component/Images/iisconfig.png" Click="IISConfig" />
+                    <Fluent:Button Header="批量Ping" Icon="/WpfQuery;component/Images/ping.png" LargeIcon="/WpfQuery;component/Images/ping.png" Click="Ping" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="竞价" ReduceOrder="(P),(P),(P),(P),(P)">
+                <Fluent:RibbonGroupBox Header="推广帐号">
+                    <Fluent:Button Header="帐号设置" Icon="Images\baidu2.png" LargeIcon="Images\baidu2.png"  Click="BaiduAccount"  />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="百度竞价">
+                    <Fluent:Button Header="百度关键词" Icon="/WpfQuery;component/Images/baidukr.png" LargeIcon="/WpfQuery;component/Images/baidukr.png" Click="BDKeywordRecommend" />
+                    <Fluent:Button Header="创意采集" Icon="/WpfQuery;component/Images/creative.jpg" LargeIcon="/WpfQuery;component/Images/creative.jpg"  Click="CreativeCollection"/>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="百度网盟">
+                    <Fluent:Button Header="网盟兴趣点" Icon="/WpfQuery;component/Images/baiduxq.png" LargeIcon="/WpfQuery;component/Images/baiduxq.png" Click="BDWMInterest" />
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="搜狗帐号">
+                    <Fluent:Button Header="帐号设置" Icon="Images\sogou2.png" LargeIcon="Images\sogou2.png"  Click="SogouAccount"  />
+                    <Fluent:Button Header="搜狗关键词" Icon="Images\sogoukr.png" LargeIcon="Images\sogoukr.png" Click="SogouKRService"/>
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+        </Fluent:Ribbon>
+
+        
+        
+        <ad:DockingManager x:Name="dockManager" Grid.Row="1">
+            <ad:DockingManager.Theme>
+                <themes:ExpressionBlueTheme/>
+            </ad:DockingManager.Theme>
+
+            <xcad:LayoutRoot>
+                <xcad:LayoutPanel Orientation="Vertical">
+                    <xcad:LayoutDocumentPane>
+                        <xcad:LayoutDocument ContentId="Document1" Title="初始页" CanClose="False">
+                            <WebBrowser Name="defaultBrowser"></WebBrowser>
+                        </xcad:LayoutDocument>
+                    </xcad:LayoutDocumentPane>
+                    <xcad:LayoutAnchorablePane Name="ToolsPane" DockHeight="150">
+                    </xcad:LayoutAnchorablePane>
+                </xcad:LayoutPanel>
+            </xcad:LayoutRoot>
+        </ad:DockingManager>
+
+        
+        
+        <Fluent:StatusBar HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Row="2">
+            <Fluent:StatusBarItem Title="信息栏" Value="150" VerticalAlignment="Center"  HorizontalAlignment="Left">
+                <TextBlock Text="登录有惊喜！（提示：按Alt 获 F10 显示快捷键）" />
+            </Fluent:StatusBarItem>
+            <Separator HorizontalAlignment="Left" />
+        </Fluent:StatusBar>
+        
+        
+    </Grid>
+</Fluent:RibbonWindow>
+    

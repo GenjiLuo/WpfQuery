@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfQuery.PostPrarm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PostPrarm" Height="500" Width="500">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="60" />
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="0" Padding="0,4,0,0" Name="txtUrl"></TextBox>
+        <Button Content="GO" Grid.Row="0" Grid.Column="1" Name="btnGo" Click="btnGo_Click"/>
+        <Button Content="获取" Grid.Row="0" Grid.Column="2" Name="btnGet" Click="btnGet_Click"/>
+        <WebBrowser Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Name="wbPostPrarm"/>
+    </Grid>
+</Window>

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="WpfQuery.BDKeywordRecommend"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+            <Border BorderThickness="0,0,0,5" BorderBrush="#B7CAE2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="110"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">关键词：</TextBlock>
+                    <TextBox Name="txtKeyword" Grid.Column="1" Height="21" VerticalAlignment="Center"/>
+                    <Button Name="btGet" Grid.Column="2"  Content="获取"  Width="100" Height="21" Click="btGet_Click" />
+                </Grid>
+            </Border>
+        </DockPanel>
+        <GridSplitter Grid.Row="1" Grid.Column="0" Background="#B7CAE2" HorizontalAlignment="Right"   VerticalAlignment="Stretch" Width="5"  />
+        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid Name="dgQueryResult" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" DockPanel.Dock="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="序号" Binding="{Binding id}"/>
+                    <DataGridTextColumn Header="推荐关键词" Binding="{Binding key}"/>
+                    <DataGridTextColumn Header="日均搜索量"  Binding="{Binding day}"/>
+                    <DataGridTextColumn Header="竞争激烈程度"  Binding="{Binding vie}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</UserControl>

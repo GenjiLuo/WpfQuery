@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="WpfQuery.LogParser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+            <Border BorderThickness="0,0,0,5" BorderBrush="#B7CAE2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Name="buttonIIS" Grid.Row="0" Grid.Column="0"  Content="IIS日志分析" ToolTip="IIS日志分析" Width="100" Height="40" Click="btIIS" />
+                    <Button Name="buttonSystem" Grid.Row="0" Grid.Column="1" Visibility="Hidden" IsEnabled="False" Content="系统日志分析" ToolTip="系统日志分析" Width="100" Height="40" Click="btSystem"/>
+                </Grid>
+            </Border>
+        </DockPanel>
+        <GridSplitter Grid.Row="1" Grid.Column="0" Background="#B7CAE2" HorizontalAlignment="Right"   VerticalAlignment="Stretch" Width="5"  />
+        <!--ListView 隔行换色-->
+        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid Name="dgQueryResult" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" DockPanel.Dock="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding date}"/>
+                    <DataGridTextColumn Binding="{Binding time}"/>
+                    <DataGridTextColumn  Binding="{Binding method}"/>
+                    <DataGridTextColumn  Binding="{Binding uri}" />
+                    <DataGridTextColumn  Binding="{Binding query}" />
+                    <DataGridTextColumn  Binding="{Binding ip}" />
+                    <DataGridTextColumn  Binding="{Binding status}" />
+                    <DataGridTextColumn  Binding="{Binding useragent}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</UserControl>

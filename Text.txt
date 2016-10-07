@@ -1,0 +1,916 @@
+﻿.net 2.0版 HttpHelper 1.4.5----怎么获得302跳转后的地址
+自己解决了。在result 增加一个参数。
+在getHtml增加
+result.finalUrl = request.Address.ToString();
+------------------------------------
+ 
+                    <Fluent:Button Header="文本">
+                        <Fluent:Button.LargeIcon>
+                            <Grid>
+                                <Image Source="Images\GrayLarge.png"/>
+                            </Grid>
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+
+
+
+		<StatusBar Name="sbar" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Background="Beige" >
+            <StatusBarItem>
+                <TextBlock>登录有惊喜！（提示：按Alt 获 F10 显示快捷键）</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+
+        <!--<xcad:DockingManager HorizontalAlignment="Left" Margin="81,190,0,0" VerticalAlignment="Top">
+            
+
+        </xcad:DockingManager>-->
+
+        <avalonDock:DockingManager x:Name="dockingManager" Margin="0,135,0,25" >
+            <avalonDock:LayoutRoot>
+                <avalonDock:LayoutPanel Orientation="Horizontal">
+                    <!--<avalonDock:LayoutDocumentPane/>-->
+                    <!--<avalonDock:LayoutAnchorablePane DockWidth="150">
+                        <avalonDock:LayoutAnchorable/>
+                    </avalonDock:LayoutAnchorablePane>
+                    <avalonDock:LayoutAnchorablePane DockWidth="150">
+                        <avalonDock:LayoutAnchorable/>
+                    </avalonDock:LayoutAnchorablePane>-->
+                    
+                </avalonDock:LayoutPanel>
+            </avalonDock:LayoutRoot>
+        </avalonDock:DockingManager>
+
+		                     xmlns:ad="http://schemas.xceed.com/wpf/xaml/avalondock" 
+                     xmlns:themes="clr-namespace:Xceed.Wpf.AvalonDock.Themes;assembly=Xceed.Wpf.AvalonDock.Themes.Expression"
+                     xmlns:xcad="clr-namespace:Xceed.Wpf.AvalonDock.Layout;assembly=Xceed.Wpf.AvalonDock"
+
+
+
+					 <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Office2010/Silver.xaml" />
+
+
+
+<Fluent:RibbonWindow x:Class="WpfQuery.RibbonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:ad="clr-namespace:Xceed.Wpf.AvalonDock;assembly=Xceed.Wpf.AvalonDock"
+        xmlns:themes="clr-namespace:Xceed.Wpf.AvalonDock.Themes;assembly=Xceed.Wpf.AvalonDock.Themes.Expression"
+        xmlns:xcad="clr-namespace:Xceed.Wpf.AvalonDock.Layout;assembly=Xceed.Wpf.AvalonDock"
+        Title="查询"
+	    Width="650"
+	    Height="500"
+	    Background="#FFEBEDF0" 
+        x:Name="window" WindowState="Normal"  WindowStartupLocation="CenterScreen"
+        Icon="Images/Fluent.ico">
+
+
+
+        private void IncludeQuery(object sender, RoutedEventArgs e)
+        {
+            //Fluent.Button button = (Fluent.Button)sender;
+            //CreateFunctionTab(button.Header.ToString());
+
+            Fluent.Button button = (Fluent.Button)sender;
+            string head = button.Header.ToString();
+
+            var firstDocumentPane = dockManager.Layout.Descendents().OfType<LayoutDocumentPane>().FirstOrDefault();
+            if (firstDocumentPane != null)
+            {
+
+                LayoutDocument doc2 = new LayoutDocument();
+                IncludeQuery control1 = new IncludeQuery();
+                doc2.Title = head;
+                doc2.Content = control1;
+                doc2.IsActive = true;
+                firstDocumentPane.Children.Add(doc2);
+
+            }
+        }
+
+
+        private void CreateFunctionTab(string tabName)
+        {
+            var firstDocumentPane = dockManager.Layout.Descendents().OfType<LayoutDocumentPane>().FirstOrDefault();
+            if (firstDocumentPane != null)
+            {
+
+                LayoutDocument doc2 = new LayoutDocument();
+                //AddUserWindow control1 = new AddUserWindow();
+                doc2.Title = tabName;
+                //doc2.Content = control1;
+                doc2.IsActive = true;
+                firstDocumentPane.Children.Add(doc2);
+
+            }
+        }
+
+
+                    //单线程
+                    //for (int i = 0; i < url.Count; i++)
+                    //{
+                    //    string inputString = url[i];
+                    //    StreamReader sr;
+                    //    try
+                    //    {
+                    //        HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("http://www.baidu.com/s?wd=" + inputString);
+                    //        HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+                    //        Stream srtStream = webResponse.GetResponseStream();
+                    //        sr = new StreamReader(webResponse.GetResponseStream(), Encoding.GetEncoding("utf-8"));
+                    //    }
+                    //    catch
+                    //    {
+                    //        MessageBox.Show("对不起！网络没有连接。");
+                    //        return;
+                    //    }
+                    //    finally
+                    //    {
+
+                    //    }
+                    //    String totalLines = sr.ReadToEnd();
+                    //    //匹配标题
+                    //    Regex reg = new Regex("没有找到该URL。您可以直接访问");
+                    //    Match mat = reg.Match(totalLines);
+                    //    if (!mat.Success)
+                    //    {
+                    //        MatchCollection mc_title = MatchURLs(totalLines, "<h3 class=\"t\">", "</h3>");
+                    //        MatchCollection mc_url = MatchURLs(totalLines, "<span class=\"g\">", "</span>");
+                    //        MatchCollection mc_time = null;
+                    //        if (mc_url.Count != 0)
+                    //        {
+                    //            mc_time = MatchURLs(mc_url[0].Value, "&nbsp;", "&nbsp;");
+                    //        }
+                    //        if (mc_title.Count != 0 && mc_time.Count != 0 && compareString(StripHT(mc_url[0].Value), url[i]))
+                    //        {
+                    //            j++;
+                    //            dt1.Rows[i][1] = StripHT(mc_title[0].Value);
+                    //            dt1.Rows[i][3] = true;
+                    //            dt1.Rows[i][4] = mc_time[0].Value;
+                    //            dt1.AcceptChanges();
+                    //        }
+                    //    }
+                    //}
+
+
+            //tbInclude.Text = "收录：" + j.ToString() + "   ";
+            //tbIncludeRate.Text = "比率：" + (Convert.ToDouble(j) / x).ToString() + "   ";
+            //tbUnInclude.Text = "未收录：" + (x - j).ToString() + "   ";
+            //tbUnIncludeRate.Text = "比率：" + (1 - Convert.ToDouble(j) / x).ToString() + "   ";
+
+            //tbIncludeRate.Text = "比率：" + (Convert.ToDouble(j) / url.Count).ToString() + "   ";
+            //tbUnInclude.Text = "未收录：" + (url.Count - j).ToString() + "   ";
+            //tbUnIncludeRate.Text = "比率：" + (1 - Convert.ToDouble(j) / url.Count).ToString() + "   ";
+
+
+
+			            //////////////////////////////////////////////
+            //获得百度搜索结果页的2-10的标题和url
+            //string[,] titleurl = new string[90, 2];
+            //int line = 0;
+            //foreach (string bdurl in baidustr)
+            //{
+            //    if (bdurl != "")
+            //    {
+            //        GetTitleurl(bdurl, ref titleurl, ref line);
+            //    }
+            //}
+
+            //匹配标题
+            //Regex reg = new Regex("id=\"([1-9][0-9]*)\"");
+
+
+
+
+			                //string title = (Common.StripHT(Common.MatchURL(html, "<h3", "</h3>"))).Replace("class=\"t\"", "").Trim();
+                //string url = Common.MatchURL(html, "<span class=\"g\">", "</span>");
+                //string putoff = Common.MatchURL(html, str.Replace(" ", ""), ">");
+                //html = html.Replace(putoff,"");
+
+                //string nohtmlstr = Common.StripHT(html);
+                //if (nohtmlstr.Contains(url.Replace("http://", "")))
+                //{
+                //    dt1.Rows[i][4] = n.ToString();
+                //    dt1.AcceptChanges();
+                //    break;
+                //}
+
+				            //匹配标题
+            //Regex reg = new Regex("没有找到该URL。您可以直接访问");
+            //Match mat = reg.Match(totalLines);
+            //if (!mat.Success)
+            //{
+            //    MatchCollection mc_title = Common.MatchURLs(totalLines, "<h3 class=\"t\">", "</h3>");
+            //    MatchCollection mc_url = Common.MatchURLs(totalLines, "<span class=\"g\">", "</span>");
+            //    MatchCollection mc_time = null;
+            //    if (mc_url.Count != 0)
+            //    {
+            //        mc_time = Common.MatchURLs(mc_url[0].Value, "&nbsp;", "&nbsp;");
+            //    }
+            //    if (mc_title.Count != 0 && mc_time.Count != 0 && Common.compareString(Common.StripHT(mc_url[0].Value), url))
+            //    {
+            //        j++;
+            //        dt1.Rows.Add(new object[5] { id, key, url, rank, title });
+            //        id++;
+            //    }
+            //}
+----------------------------------------------------
+                                    <!-- TreeGrid "Control" -->
+                                    <Border BorderBrush="Black" BorderThickness="1">
+
+                                        <!-- Resources -->
+                                        <Border.Resources>
+                                            <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Margin" Value="3 0 3 0"/>
+                                            </Style>
+                                            <Style x:Key="TextBlockBoldStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle}">
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Style>
+                                        </Border.Resources>
+
+                                        <!-- Content -->
+                                        <Grid Grid.IsSharedSizeScope="True">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+
+                                            <!-- Column headers -->
+                                            <TreeViewItem Grid.Row="0" BorderThickness="1">
+                                                <TreeViewItem.Header>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition SharedSizeGroup="Task"/>
+                                                            <!-- Placeholders for two columns of ToggleButton -->
+                                                            <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                            <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                            <ColumnDefinition SharedSizeGroup="Duration"/>
+                                                            <ColumnDefinition SharedSizeGroup="Notes"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="平台" Style="{StaticResource TextBlockBoldStyle}"/>
+                                                        <!-- Empty TreeViewItem to measure the size of its ToggleButton into the "Toggle" group-->
+                                                        <TreeViewItem Grid.Column="1" Padding="0"/>
+                                                        <TextBlock Grid.Column="3" Text="排名" ToolTip="父节点为平台统计数，子节点为排名" Style="{StaticResource TextBlockBoldStyle}"/>
+                                                        <TextBlock Grid.Column="4" Text="标题" Style="{StaticResource TextBlockBoldStyle}"/>
+                                                    </Grid>
+                                                </TreeViewItem.Header>
+                                            </TreeViewItem>
+
+                                            <!-- Data rows -->
+                                            <TreeView Grid.Row="1" ItemsSource="{Binding SubItems}" BorderBrush="Gray" BorderThickness="0 1 0 0">
+                                                <TreeView.ItemTemplate>
+
+                                                    <!-- Level 0 template leaves space for 2 child "Toggle" levels -->
+                                                    <HierarchicalDataTemplate ItemsSource="{Binding SubItems}">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition SharedSizeGroup="Task"/>
+                                                                <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                                <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                                <ColumnDefinition SharedSizeGroup="Duration"/>
+                                                                <ColumnDefinition SharedSizeGroup="Notes"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock Grid.Column="0" Text="{Binding Task}" Style="{StaticResource TextBlockStyle}"/>
+                                                            <TextBlock Grid.Column="3" Text="{Binding Duration}" Style="{StaticResource TextBlockStyle}"/>
+                                                            <TextBlock Grid.Column="4" Text="{Binding Notes}" Style="{StaticResource TextBlockStyle}"/>
+                                                        </Grid>
+
+                                                        <!-- Level 1 template leaves space for 1 child "Toggle" level -->
+                                                        <HierarchicalDataTemplate.ItemTemplate>
+                                                            <HierarchicalDataTemplate ItemsSource="{Binding SubItems}">
+                                                                <Grid>
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition SharedSizeGroup="Task"/>
+                                                                        <ColumnDefinition/>
+                                                                        <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                                        <ColumnDefinition SharedSizeGroup="Duration"/>
+                                                                        <ColumnDefinition SharedSizeGroup="Notes"/>
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <TextBlock Grid.Column="0" Text="{Binding Task}" Style="{StaticResource TextBlockStyle}"/>
+                                                                    <TextBlock Grid.Column="3" Text="{Binding Duration}" Style="{StaticResource TextBlockStyle}"/>
+                                                                    <TextBlock Grid.Column="4" Text="{Binding Notes}" Style="{StaticResource TextBlockStyle}"/>
+                                                                </Grid>
+
+                                                                <!-- Level 2 template has no children -->
+                                                                <HierarchicalDataTemplate.ItemTemplate>
+                                                                    <HierarchicalDataTemplate ItemsSource="{Binding SubItems}">
+                                                                        <Grid>
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition SharedSizeGroup="Task"/>
+                                                                                <ColumnDefinition/>
+                                                                                <ColumnDefinition/>
+                                                                                <ColumnDefinition SharedSizeGroup="Duration"/>
+                                                                                <ColumnDefinition SharedSizeGroup="Notes"/>
+                                                                            </Grid.ColumnDefinitions>
+                                                                            <TextBlock Grid.Column="0" Text="{Binding Task}" Style="{StaticResource TextBlockStyle}"/>
+                                                                            <TextBlock Grid.Column="3" Text="{Binding Duration}" Style="{StaticResource TextBlockStyle}"/>
+                                                                            <TextBlock Grid.Column="4" Text="{Binding Notes}" Style="{StaticResource TextBlockStyle}"/>
+                                                                        </Grid>
+                                                                    </HierarchicalDataTemplate>
+                                                                </HierarchicalDataTemplate.ItemTemplate>
+                                                            </HierarchicalDataTemplate>
+                                                        </HierarchicalDataTemplate.ItemTemplate>
+                                                    </HierarchicalDataTemplate>
+                                                </TreeView.ItemTemplate>
+                                            </TreeView>
+                                        </Grid>
+                                    </Border>
+                                    <!-- TreeGrid "Control" end-->
+
+
+
+									            /////////////////////////
+            DataContext = new ScheduleItem
+            {
+                SubItems = new ScheduleItem[]
+                {
+                    new ScheduleItem
+                    {
+                        Task = "Coding",
+                        Duration = 4,
+                        Notes = "It pays the bills",
+                        SubItems = new ScheduleItem[]
+                        {
+                            new ScheduleItem { Task = "Write", Duration = 2, Notes = "C# or go home" },
+                            new ScheduleItem { Task = "Compile", Duration = 1, Notes = "WTB: SSD" },
+                            new ScheduleItem { Task = "Test", Duration = 1, Notes = "Works on my machine" },
+                        },
+                    },
+                },
+            };
+            /////////////////////////
+
+
+			        public class ScheduleItem
+        {
+            public string Task { get; set; }
+            public double Duration { get; set; }
+            public string Notes { get; set; }
+            public ScheduleItem[] SubItems { get; set; }
+            public ScheduleItem()
+            {
+                SubItems = new ScheduleItem[0];
+            }
+        }
+
+
+
+		------------
+		<!--ListView 隔行换色-->
+                <ListView Grid.Row="0" Grid.Column="0" x:Name="lbDigKey" AlternationCount="2" Background="#E4EDF6">
+                    <ListView.View>
+						<GridView>
+                            <GridViewColumn Header="关键词" Width="100" DisplayMemberBinding="{Binding key}"/>
+                            <GridViewColumn Header="平台" Width="80" DisplayMemberBinding="{Binding engine}"/>
+						</GridView>
+					</ListView.View>
+					<!--<ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Background" Value="#c9c9c9"/>
+                            <Style.Triggers>
+                                <Trigger Property="ListBox.AlternationIndex" Value="1">
+                                    <Setter Property="Background" Value="#DDDDDD"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border x:Name="back" Height="20">
+                                <TextBlock Text="{Binding key}"/>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>-->
+                </ListView>
+
+
+
+				------------------
+            WaitingDlg dlg = new WaitingDlg();
+
+            Thread t = new Thread(new ThreadStart(delegate
+            {
+
+                dlg.Dispatcher.Invoke(new Action(delegate
+                {
+
+                    dlg.Show();
+
+                }), null);
+
+            }));
+            t.Start();
+            Thread.Sleep(5000);
+            t.Abort();
+
+			-----------------
+			        //Thread trd = new Thread(new ThreadStart(this.ThreadTask));
+        //trd.IsBackground = true;
+        //trd.Start();
+
+        private delegate void UpdateProgressBarDelegate(System.Windows.DependencyProperty dp, Object value);
+        private void ThreadTask()
+        {
+            UpdateProgressBarDelegate updatePbDelegate = new UpdateProgressBarDelegate(lbDigKey.SetValue);
+            Dispatcher.Invoke(updatePbDelegate, System.Windows.Threading.DispatcherPriority.Background, new object[] { System.Windows.Controls.ListBox.ItemsSourceProperty, dt });
+        }
+
+
+        //private delegate void UpdateMyChart(System.Windows.DependencyProperty dp, Object value);
+        //private void ThreadTask()
+        //{
+        //    UpdateMyChart updateMyChart = new UpdateMyChart(Baidu.SetValue);
+        //    Dispatcher.Invoke(updateMyChart, System.Windows.Threading.DispatcherPriority.Background, new object[] { Visifire.Charts.DataPoint.YValuesProperty, id });
+        //}
+---------------------------------
+        //private void ThreadFunc()
+        //{
+        //    //run your coding;
+        //    WaitingDlg temp = new WaitingDlg();
+        //    temp.Show();
+        //    //run your coding;
+        //}
+
+        //private void ThreadFunc()
+        //{
+        //    Action mi = new Action(this.ShowForm);
+        //    mi.Invoke();
+        //}
+        //private void ShowForm()
+        //{
+        //    WaitingDlg temp = new WaitingDlg();
+        //    temp.Show();
+        //}
+        //Thread FormThread = new Thread(new ThreadStart(ThreadFunc));
+        //FormThread.SetApartmentState(ApartmentState.STA);
+        //FormThread.Start();
+        //Thread.Sleep(5000);
+        //FormThread.Abort();
+
+------------------------------------------------------------------------
+            Random ra = new Random();
+            Thread.Sleep(ra.Next(500, 2000));
+
+
+			Install-Package ScrapySharp -Version 2.2.62
+
+			爬虫
+			http://msdn.microsoft.com/zh-tw/ee939355.aspx
+			http://xixilive.blog.163.com/blog/static/55179690201061111251927/
+			http://wenku.baidu.com/view/c9013336eefdc8d376ee3222.html
+
+
+			-----------------------
+			                        WebClient wc = new WebClient();
+                        //byte[] pageSourceBytes = wc.DownloadData(new Uri(snapshot_url));
+                        byte[] pageSourceBytes = null;
+                        try
+                        {
+                            pageSourceBytes = wc.DownloadData(new Uri(snapshot_url));
+                        }
+                        catch
+                        {
+                            url = "404";
+                        }
+
+                        
+                        string pageSource = Encoding.GetEncoding("gb2312").GetString(pageSourceBytes);
+                        HtmlDocument doc = new HtmlDocument();
+                        doc.LoadHtml(pageSource);
+
+                        HtmlNodeCollection keyNodes = doc.DocumentNode.SelectNodes("/html[1]/body[1]/div[1]/div[3]/a[1]");
+                        if (keyNodes != null)
+                        {
+                            foreach (HtmlNode keyNode in keyNodes)
+                            {
+                                url = keyNode.InnerText;
+                            }
+                        }
+                        if (MatchRule(pageSource))
+                        {
+                            dt1.Rows.Add(new object[6] { id, key, rule, n, title, url });
+                            id++;
+                        }
+                        Thread.Sleep(500);
+
+-----------------------------------------------
+        public static string BDSegment(string totalLines, int rank)
+        {
+            string str = " id=\"" + rank.ToString() + "\"";
+            string str_end = "id=\"page\"";
+            if (rank % 10 != 0)
+            {
+                string str_next = " id=\"" + (rank + 1).ToString() + "\"";
+                if (!totalLines.Contains(str))
+                {
+                    return "";
+                }
+
+                if (totalLines.Contains(str) && !totalLines.Contains(str_next))
+                {
+                    return MatchURL(totalLines, str, str_end);
+                }
+
+                if (totalLines.Contains(str) && totalLines.Contains(str_next))
+                {
+                    return MatchURL(totalLines, str, str_next);
+                }
+
+            }
+            else
+            {
+                return MatchURL(totalLines, str, str_end);
+            }
+
+            return "";
+        }
+
+-----------------------------------------------
+C#.net模拟提交表单POST
+方法一、
+System.Net.WebClient WebClientObj        = new System.Net.WebClient();
+   System.Collections.Specialized.NameValueCollection PostVars  = new System.Collections.Specialized.NameValueCollection();
+   PostVars.Add("A1","0");
+   PostVars.Add("A2","0");
+   PostVars.Add("A3","000");
+   try
+   {
+    byte[] byRemoteInfo   = WebClientObj.UploadValues("http://www.lovezhao.com/vote.asp","POST",PostVars);
+    //下面都没用啦，就上面一句话就可以了
+    string sRemoteInfo   = System.Text.Encoding.Default.GetString(byRemoteInfo);  
+    //这是获取返回信息
+    richTextBox_instr.Text  += sRemoteInfo;
+   }
+   catch
+   {}
+
+
+方法二、
+string url = "网址";
+HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+string s = "要提交的数据";
+byte[] requestBytes = System.Text.Encoding.ASCII.GetBytes (LoginInfo);
+req.Method = "POST";
+req.ContentType = "application/x-www-form-urlencoded";
+req.ContentLength = requestBytes.Length;
+Stream requestStream = req.GetRequestStream();
+requestStream.Write(requestBytes,0,requestBytes.Length);
+requestStream.Close();
+HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+StreamReader sr = new StreamReader(res.GetResponseStream(), System.Text.Encoding.Default);
+string backstr = sr.ReadToEnd(); Response.Write(line); sr.Close(); res.Close(); 
+
+
+----------------------------------------
+            //string query = @"SELECT COUNT(DISTINCT c-ip) AS hits FROM '"+filename+"' WHERE cs-uri-stem like '%.asp' AND sc-status=200";
+=======*********************************===================
+POST问题
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            //DisplayMemberBinding="{Binding Path=key}"
+            var p = new Person { key = "张三", value = "上海市乳山路" };
+            lvParam.Items.Add(p);
+            lvParam.Items.Add(new { key = "test",value="xxx" });
+        }
+
+        public class Person
+        {
+            public string key { get; set; }
+            public string value { get; set; }
+        }
+        private void btnParam_Click(object sender, RoutedEventArgs e)
+        {
+            AddParamDialog apd = new AddParamDialog();
+            //apd.ShowDialog();
+            //System.Windows.Forms.DialogResult arsl = apd.ShowDialog();
+
+            //if (arsl == System.Windows.Forms.DialogResult.OK)
+            //{
+            //    ListViewItem item = new ListViewItem(apd.key);
+            //    //item.SubItems.Add(apd.value);
+            //    lvParam.Items.Add(item);
+            //}
+
+            if (apd.ShowDialog() == true)
+            {
+                MessageBox.Show("xx");
+                //ListViewItem item = new ListViewItem();
+                //item.Content = apd.key;
+                //lvParam.Items.Add(item);
+            }
+        }
+
+        private void btnDelParam_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (ListViewItem item in lvParam.Items)
+            {
+                if (item.IsSelected)
+                {
+                    lvParam.Items.Remove(item);
+                }
+            }
+        }
+
+        private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
+            ofd.Multiselect = true;
+            if (ofd.ShowDialog() == true)
+            {
+                string[] filename = ofd.FileNames;
+                foreach (var file in filename)
+                {
+                    //lvFiles.Items.Add(new { filename = file });
+                    lvFiles.Items.Add(file);
+                }
+            }
+        }
+
+        private void btnDelFile_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (ListViewItem item in lvFiles.Items)
+            {
+                if (item.IsSelected)
+                {
+                    lvFiles.Items.Remove(item);
+                }
+            }
+        }
+
+		----
+		            if (((ComboBoxItem)cbRequestContentType.SelectedItem).Content.ToString() == "File")
+            {
+                Tab.SelectedIndex = 1;
+            }
+            else
+            {
+                Tab.SelectedIndex = 0;
+            }
+			-----------------
+			Hyperlink.Click="dgQueryResult_Click"
+
+			        private void dgQueryResult_Click(object sender, RoutedEventArgs e)
+        {
+            //if (dgQueryResult.SelectedItem == null)
+            //{
+            //    return;
+            //}
+            //string url = (dgQueryResult.SelectedItem as DataRowView)[2].ToString();
+            //System.Diagnostics.Process.Start(url);
+        }
+-------------------------------------------
+            if (txtVerifyUrl.Text.Trim()!="")
+            {
+                //请求
+                HttpWebRequest hwReq = (HttpWebRequest)WebRequest.Create(txtVerifyUrl.Text.Trim());
+                //代理为空，加快响应
+                hwReq.Proxy = null;
+                //响应
+                HttpWebResponse hwRes = (HttpWebResponse)hwReq.GetResponse();
+                //流获取响应
+                using (Stream sm = hwRes.GetResponseStream())
+                {
+                    Bitmap bitmap = (Bitmap)Bitmap.FromStream(sm);
+                    //if (bitmap == null)
+                    //{
+                    //    MessageBox.Show("获取验证码图片失败，请检查网络！", "提示");
+                    //}
+                    Verify.Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                }
+            }
+-----------------------
+[account]
+Username=npx120org
+Password=Liuli123
+Token=fca53a684aac07b5e8b5bea6c0e4e7c1
+
+
+433530配额
+AccountService ：https://api.baidu.com/sem/sms/v3/AccountService?wsdl 
+CampaignService ：https://api.baidu.com/sem/sms/v3/CampaignService?wsdl 
+AdgroupService ：https://api.baidu.com/sem/sms/v3/AdgroupService?wsdl 
+KeywordService ：https://api.baidu.com/sem/sms/v3/KeywordService?wsdl 
+CreativeService ：https://api.baidu.com/sem/sms/v3/CreativeService?wsdl 
+NewCreativeService ：https://api.baidu.com/sem/sms/v3/NewCreativeService?wsdl 
+ReportService ：https://api.baidu.com/sem/sms/v3/ReportService?wsdl 
+KRService ：https://api.baidu.com/sem/sms/v3/KRService?wsdl 
+BulkJobService ：https://api.baidu.com/sem/sms/v3/BulkJobService?wsdl 
+SearchService ：https://api.baidu.com/sem/sms/v3/SearchService?wsdl 
+
+
+v2版
+AccountService ：https://api.baidu.com/sem/sms/v2/AccountService?wsdl 
+CampaignService ：https://api.baidu.com/sem/sms/v2/CampaignService?wsdl 
+AdgroupService ：https://api.baidu.com/sem/sms/v2/AdgroupService?wsdl 
+KeywordService ：https://api.baidu.com/sem/sms/v2/KeywordService?wsdl 
+CreativeService ：https://api.baidu.com/sem/sms/v2/CreativeService?wsdl 
+ReportService ：https://api.baidu.com/sem/sms/v2/ReportService?wsdl 
+FolderService ：https://api.baidu.com/sem/sms/v2/FolderService?wsdl 
+KRService ：https://api.baidu.com/sem/sms/v2/KRService?wsdl 
+NewCreativeService ：https://api.baidu.com/sem/sms/v2/NewCreativeService?wsdl
+
+
+网盟2000配额
+AccountService ：https://api.baidu.com/sem/nms/v2/AccountService?wsdl
+CampaignService ：https://api.baidu.com/sem/nms/v2/CampaignService?wsdl
+GroupService ：https://api.baidu.com/sem/nms/v2/GroupService?wsdl
+GroupConfigService ：https://api.baidu.com/sem/nms/v2/GroupConfigService?wsdl
+AdService ：https://api.baidu.com/sem/nms/v2/AdService?wsdl
+PeopleService ：https://api.baidu.com/sem/nms/v2/PeopleService?wsdl
+CodeService ：https://api.baidu.com/sem/nms/v2/CodeService?wsdl
+ReportService ：https://api.baidu.com/sem/nms/v2/ReportService?wsdl
+FCService ：https://api.baidu.com/sem/nms/v2/FCService?wsdl
+AccountFileService ：https://api.baidu.com/sem/nms/v2/AccountFileService?wsdl
+InterestService ：https://api.baidu.com/sem/nms/v2/InterestService?wsdl
+KRService ：https://api.baidu.com/sem/nms/v2/KRService?wsdl
+ToolService ：https://api.baidu.com/sem/nms/v2/ToolService?wsdl
+
+
+
+用户单位自身拥有2名以上的技术人员（精通任何一种支持Web服务的主流开发语言，如Java、PHP、C#等；
+精通Web服务相关的规范和协议：XML、SOAP、WSDL、XML Schema；精通一些Web服务测试工具，如SOATest、SoapUI），
+具备Web Service项目开发经验。
+
+
+尊敬的用户： 
+  您的API权限代码为：91ba5654f49b68b73da639d5a8e51303
+  您的API测试权限代码为：b18cbb21190033d59defb31e3299c0f6
+  您可以使用权限代码访问所有已开通的API服务。 
+  API权限代码与搜狗推广账户名和密码一起是您获取API服务的权限标识，您需要将其加入您所有API请求的头信息中，以便获得搜狗竞价API服务器提供的各种服务。请牢记您的API权限代码并进行保密。 
+  如果您想获取关于API的开发信息，请您访问http://apihome.sogou.com/docs.jsp
+  如有您有关于API的相关问题，请您访问http://apihome.sogou.com/faq.jsp 
+   谢谢您选择搜狗的服务！ 
+  注：此邮件为系统自动发送，请勿回复。 
+       此致 
+            敬礼
+
+            2014-04-28 10:48:08
+
+bjhh@sogou.com账户        lzh?haihua_7204密码
+
+
+Sogou http://apihome.sogou.com/
+AccountService: http://api.agent.sogou.com:8080/sem/sms/v1/AccountService?wsdl
+CpcPlanService: http://api.agent.sogou.com:8080/sem/sms/v1/CpcPlanService?wsdl
+CpcGrpService: http://api.agent.sogou.com:8080/sem/sms/v1/CpcGrpService?wsdl
+CpcService: http://api.agent.sogou.com:8080/sem/sms/v1/CpcService?wsdl
+CpcIdeaService: http://api.agent.sogou.com:8080/sem/sms/v1/CpcIdeaService?wsdl
+ReportService: http://api.agent.sogou.com:8080/sem/sms/v1/ReportService?wsdl
+AccountDownloadService: http://api.agent.sogou.com:8080/sem/sms/v1/AccountDownloadService?wsdl
+KRService: http://api.agent.sogou.com:8080/sem/sms/v1/KRService?wsdl
+
+------------------------
+                    <Fluent:Button Name="btnRegister" Header="注册" Icon="Images\register.png" LargeIcon="Images\register.png" />
+                    <Fluent:Button Header="修改密码" Icon="Images\changePassword.ico" LargeIcon="Images\changePassword.ico"/>
+                    <Fluent:Button Header="在线升级" Icon="Images\updates.png" LargeIcon="Images\updates.png"/>
+----------------------
+                        if (pageSource.Contains("<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><html><head><title>302 Found</title></head><body><h1>Found</h1><p>The document has moved <a href=\""))
+                        {
+                            snapshot_url = Common.MatchURL(pageSource, "<a href=\"", "\"");
+                            pageSource = GetWebPageSource(snapshot_url);
+                        }
+                        //判定是否301
+                        if (pageSource.Contains("<head><title>Document Moved</title></head><body><h1>Object Moved</h1>This document may be found <a HREF=\""))
+                        {
+                            snapshot_url = Common.MatchURL(pageSource, "<a href=\"", "\"");
+                            pageSource = GetWebPageSource(snapshot_url);
+                        }
+
+
+
+
+						            HttpResult result = http.GetHtml(item);
+            //return result.Html;
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                //表示访问成功，具体的大家就参考HttpStatusCode类
+            }
+            //表示StatusCode的文字说明与描述
+            //string statusCodeDescription = result.Header["Location"].ToString();
+            //return statusCodeDescription; 
+            //return result.Header["Location"].ToString();
+            //string ok="";
+            //foreach (string ss in result.Header.AllKeys)
+            //{
+            //    ok += ss + "___";
+            //}
+            return result.finalUrl;
+-----------------------------------------------------------------------------------
+WPF WebBrowser中的Document
+首先要引入Microsoft.mshtml.dll 地址是C:\ProgramFiles\Microsoft.NET\Primary Interop Assemblies
+
+1、根据元素ID获取元素的值。
+比如要获取<img class="" id="regimg"src="/register/checkregcode.html?1287068791" width="80"height="22">这个标签里的src属性的值：
+mshtml.IHTMLDocument2 doc2 =(mshtml.IHTMLDocument2)webBrowser1.Document;
+mshtml.IHTMLElement img =(mshtml.IHTMLElement)doc2.all.item("regimg", 0);
+string imgUrl = (string)img.getAttribute("src");
+
+2、填写表单，并确定
+mshtml.IHTMLElement loginname =(mshtml.IHTMLElement)doc2.all.item("loginname", 0);
+   mshtml.IHTMLElement loginPW =(mshtml.IHTMLElement)doc2.all.item("password", 0);
+   mshtml.IHTMLElement loginBT =(mshtml.IHTMLElement)doc2.all.item("formsubmit", 0);
+   mshtml.IHTMLElement loginYZ =(mshtml.IHTMLElement)doc2.all.item("regcode", 0);
+   loginname.setAttribute("value", tbLoginName.Text);
+   loginPW.setAttribute("value", tbLoginPassWord.Password);
+   loginYZ.setAttribute("value", tbYZ.Text);
+   loginBT.click();
+
+3、获取源码
+textBox1.Text = doc2.body.innerHTML;
+
+4、执行JS
+mshtml.IHTMLWindow2 win =(mshtml.IHTMLWindow2)doc2.parentWindow;
+win.execScript("changeRegImg()", "javascript");//使用JS
+
+5、禁止JS，WPF下目前发现唯一适用的一种方法：
+public void HideScriptErrors(WebBrowser wb, bool Hide)
+   {
+    FieldInfofiComWebBrowser = typeof(WebBrowser).GetField("_axIWebBrowser2",BindingFlags.Instance | BindingFlags.NonPublic);
+    if(fiComWebBrowser == null) return;
+    objectobjComWebBrowser = fiComWebBrowser.GetValue(wb);
+    if(objComWebBrowser == null) return;
+   objComWebBrowser.GetType().InvokeMember(
+    "Silent",BindingFlags.SetProperty, null, objComWebBrowser, new object[] {Hide });
+   }
+   voidwebBrowser1_Navigated(object sender, NavigationEventArgs e)
+   {
+   HideScriptErrors(webBrowser1,
+   true);
+   }
+
+   http://www.cnblogs.com/lemony/archive/2007/11/04/948886.html
+
+
+   ------------
+   思路是利用淘宝和百度的接口，
+百度：           “suggestion.baidu.com/su?wd= 搜索内容 &p=3&t=1273278850500”
+淘宝：          “ suggest.taobao.com/sug?code=utf-8&callback=?&q=搜索内容”
+http://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word,obdata&word=京科银康
+http://suggestion.baidu.com/su?wd=%E4%BA%AC%E7%A7%91%E9%93%B6%E5%BA%B7&sugmode=2&zxmode=1&json=1&p=3
+http://w.sugg.sogou.com/sugg/ajaj_json.jsp?key=北京海华医院&type=web&ori=yes&pr=web&abtestid=8&ipn=
+
+
+
+----------------思路
+线程开始：
+            thread.Start();
+线程挂起 
+            thread.Suspend();
+线程继续
+            thread.Resume();
+线程终止
+           thread.Abort();
+
+dgQueryResult.Items.Add(new { id = "1", downword = "key",source="2222", search = "sourcekey" });
+----------------------------
+1，用 system.net.webclient
+
+using System.Net;
+using System.Windows.Forms;
+
+string url = "http://www.cnblogs.com";
+string result = null;
+
+try
+{
+    WebClient client = new WebClient();
+    result = client.DownloadString( url );
+}
+catch (Exception ex)
+{
+    MessageBox.Show( ex.Message );
+}
+2,用 System.Net.HttpWebRequest
+
+ 
+
+using System.Net;
+using System.IO;
+using System.Windows.Forms;
+
+string result = null;
+string url = "http://www.cnblogs.com";
+WebResponse response = null;
+StreamReader reader = null;
+
+try
+{
+    HttpWebRequest request = (HttpWebRequest)WebRequest.Create( url );
+    request.Method = "GET";
+    response = request.GetResponse();
+    reader = new StreamReader( response.GetResponseStream(), Encoding.UTF8 );
+    result = reader.ReadToEnd();
+}
+catch (Exception ex)
+{
+    MessageBox.Show( ex.Message );
+}
+finally
+{
+    if (reader != null)
+        reader.Close();
+    if (response != null)
+        response.Close();
+}
+----------------------
+                //例如Uri uri=new Uri("http://www.csdn.net");
